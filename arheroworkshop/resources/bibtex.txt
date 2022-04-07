@@ -1,0 +1,5 @@
+@article{ribeiroskreinig2022ahw,
+  author={Ribeiro Skreinig, Lucchas and Stanescu, Ana and Mori, Shohei and Heyen, Frank and Mohr, Peter and Sedlmair, Michael and Schmalstieg, Dieter and Kalkofen, Denis},
+  journal={IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops}, 
+  title={AR Hero: Generating Interactive Augmented Reality Guitar Tutorials}, 
+  year={2022}}
