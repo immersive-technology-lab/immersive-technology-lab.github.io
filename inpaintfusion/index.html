@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>InpaintFusion: Incremental RGB-D Inpainting for 3D Scenes</title>
+	
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+	<meta name="description" content="InpaintFusion: Incremental RGB-D Inpainting for 3D Scenes is a TVCG Paper.">
+	<meta name="keywords" content="diminished reality, augmented reality, slam, immersive technology lab, tugraz, tvcg">
+	<meta name="author" content="Immersive Technology Lab, TUGraz">
+
+	<!-- Bootstrap CSS and JS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Before-After (http://codictados.com/portfolio/definitive-image-comparison-slider-demo/) -->
+	<link rel="stylesheet" href="before-after/dics.css">
+	<script src="before-after/dics.js"></script>
+	<script src="assets/js/BeforeAfter.js"></script> <!-- Change this to modify the effect -->
+</head>
+
+<body>
+<!-- Begin page content -->
+<main>
+	<section class="hero-banner bg-dark bg-opacity-10 pt-1 pb-4">
+	<div class="container text-center">
+		<!-- Title and a note -->
+		<h1 class="mt-4"><b>InpaintFusion</b>: Incremental RGB-D Inpainting for 3D Scenes</h1>
+		<h4 class="text-black-50">Transactions on Visualization and Computer Graphics</h4>
+		<h4 class="text-black-50">(Invited TVCG paper at IEEE ISMAR 2020)</h4>
+
+		<!-- Author info. Tips: https://getbootstrap.com/docs/5.0/layout/grid/ -->
+		<div class="mt-4">
+			<div class="row">
+				<div class="col">
+					<a class="lead text-decoration-none" href="https://mugichoko445.bitbucket.io/" target="_blank">Shohei Mori</a><br>
+					<div class="mt-n1"><small>Graz University of Technology</small></div>
+				</div>
+				<div class="col">
+					<a class="lead text-decoration-none" href="https://www.tugraz.at/institute/icg/research/team-schmalstieg/team/okan-erat/" target="_blank">Okan Erat</a><br>
+					<div class="mt-n1"><small>Graz University of Technology</small></div>
+				</div>
+				<div class="col">
+					<a class="lead text-decoration-none" href="https://scholar.google.de/citations?user=LDiD6AwAAAAJ&hl=de" target="_blank">Wolfgang Broll</a><br>
+					<div class="mt-n1"><small>Ilmenau University of Technology</small></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<a class="lead text-decoration-none" href="http://www.hvrl.ics.keio.ac.jp/professor-saito/" target="_blank">Hideo Saito</a><br>
+					<div class="mt-n1"><small>Keio University</small></div>
+				</div>
+				<div class="col">
+					<a class="lead text-decoration-none" href="https://www.tugraz.at/institute/icg/research/team-schmalstieg/" target="_blank">Dieter Schmalstieg</a><br>
+					<div class="mt-n1"><small>Graz University of Technology</small></div>
+				</div>
+				<div class="col">
+					<a class="lead text-decoration-none" href="https://www.tugraz.at/institute/icg/research/team-kalkofen/people/denis-kalkofen/" target="_blank">Denis Kalkofen</a><br>
+					<div class="mt-n1"><small>Graz University of Technology</small></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+
+	<section class="hero-banner bg-white shadow-lg shadow pt-4 pb-4">
+	<div class="container text-center">
+		<!-- Teaser image -->
+		<div class="mb-2">
+			<div class="row">
+			<img src="assets/img/teaser.jpg" class="img-fluid" alt="Teaser image">
+			</div>
+		</div>
+
+
+		<!-- Content icons -->
+		<div class="mt-5">
+			<div class="row mb-3">
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="https://ieeexplore.ieee.org/document/9184389" target="_blank">
+						<img src="assets/bootstrap-icons-1.1.0/link-45deg.svg" alt="Link to IEEE Xplore" width="80" height="80" title="IEEE Xplore">
+						<figcaption class="figure-caption mt-1"><b>Xplore</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="http://arbook.icg.tugraz.at/schmalstieg/Schmalstieg_380.pdf" target="_blank">
+						<img src="assets/bootstrap-icons-1.1.0/file-earmark-text.svg" alt="Link to Author Preprint" width="80" height="80" title="Author Preprint">
+						<figcaption class="figure-caption mt-1"><b>Preprint</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="https://youtu.be/pFpIBQTmts4" target="_blank">
+						<img src="assets/bootstrap-icons-1.1.0/file-earmark-play-fill.svg" alt="Link to Technical Video" width="80" height="80" title="Technical Video">
+						<figcaption class="figure-caption mt-1"><b>Video</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="https://youtu.be/nTswcUex41E" target="_blank">
+						<img src="assets/bootstrap-icons-1.1.0/file-earmark-play-fill.svg" alt="Link to Study Video" width="80" height="80" title="Study Video">
+						<figcaption class="figure-caption mt-1"><b>Video (User Study)</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="https://youtu.be/UMu5Lwo7h9A?t=1188" target="_blank">
+						<img src="assets/bootstrap-icons-1.1.0/mic.svg" alt="Link to ISMAR Talk" width="80" height="80" title="ISMAR Talk">
+						<figcaption class="figure-caption mt-1"><b>Talk</b></figcaption>
+					</a></figure>
+				</div>
+			</div>
+		</div>
+		
+
+		<!-- custom h line -->
+		<hr style="margin: 0 25% 1rem 25%;">
+		
+
+		<!-- Abstract -->
+		<h3 class="my-5">Abstract</h3>
+		<p class="mb-5 text-start">
+		State-of-the-art methods for diminished reality propagate pixel information from a keyframe to subsequent frames for real-time inpainting. However, these approaches produce artifacts, if the scene geometry is not sufficiently planar. In this paper, we present InpaintFusion, a new real-time method that extends inpainting to non-planar scenes by considering both color and depth information in the inpainting process. We use an RGB-D sensor for simultaneous localization and mapping, in order to both track the camera and obtain a surfel map in addition to RGB images. We use the RGB-D information in a cost function for both the color and the geometric appearance to derive a global optimization for simultaneous inpainting of color and depth. The inpainted depth is merged in a global map by depth fusion. For the final rendering, we project the map model into image space, where we can use it for effects such as relighting and stereo rendering of otherwise hidden structures. We demonstrate the capabilities of our method by comparing it to inpainting results with methods using planar geometric proxies.
+		</p>
+		
+
+		<!-- custom h line -->
+		<hr style="margin: 0 25% 1em 25%;">
+		
+
+		<!-- Results -->
+		<h3 class="my-5">Results</h3>
+
+		<div class="alert alert-warning alert-dismissible fade show" role="alert">
+			<strong>Best seen in <a class="text-decoration-none" href="https://youtu.be/pFpIBQTmts4" target="_blank">videos</a>!</strong> Our Diminished Reality system is for full 3D real-time inpainting experiences!
+			<!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+		</div>
+
+		<div class="row">
+			<div class="col-md-4 mb-1">
+				<div class="b-dics">
+					<img class="img-fluid" src="assets/img/rock_1_or.jpg" alt="Original">
+					<img class="img-fluid" src="assets/img/rock_1_dr.jpg" alt="Inpainted">
+				</div>
+			</div>
+			<div class="col-md-4 mb-3">
+				<div class="b-dics">
+					<img class="img-fluid" src="assets/img/rock_2_or.jpg" alt="Original">
+					<img class="img-fluid" src="assets/img/rock_2_dr.jpg" alt="Inpainted">
+				</div>
+			</div>
+			<div class="col-md-4 mb-3">
+				<div class="b-dics">
+					<img class="img-fluid" src="assets/img/rock_3d_or.jpg" alt="Original">
+					<img class="img-fluid" src="assets/img/rock_3d_dr.jpg" alt="Inpainted">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 mb-1">
+				<div class="b-dics">
+					<img class="img-fluid" src="assets/img/leave_1_or.jpg" alt="Original">
+					<img class="img-fluid" src="assets/img/leave_1_dr.jpg" alt="Inpainted">
+				</div>
+			</div>
+			<div class="col-md-4 mb-3">
+				<div class="b-dics">
+					<img class="img-fluid" src="assets/img/leave_2_or.jpg" alt="Original">
+					<img class="img-fluid" src="assets/img/leave_2_dr.jpg" alt="Inpainted">
+				</div>
+			</div>
+			<div class="col-md-4 mb-3">
+				<div class="b-dics">
+					<img class="img-fluid" src="assets/img/leave_3d_or.jpg" alt="Original">
+					<img class="img-fluid" src="assets/img/leave_3d_dr.jpg" alt="Inpainted">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 mb-1">
+				<div class="b-dics">
+					<img class="img-fluid" src="assets/img/crack_1_or.jpg" alt="Original">
+					<img class="img-fluid" src="assets/img/crack_1_dr.jpg" alt="Inpainted">
+				</div>
+			</div>
+			<div class="col-md-4 mb-3">
+				<div class="b-dics">
+					<img class="img-fluid" src="assets/img/crack_2_or.jpg" alt="Original">
+					<img class="img-fluid" src="assets/img/crack_2_dr.jpg" alt="Inpainted">
+				</div>
+			</div>
+			<div class="col-md-4 mb-3">
+				<div class="b-dics">
+					<img class="img-fluid" src="assets/img/crack_3d_or.jpg" alt="Original">
+					<img class="img-fluid" src="assets/img/crack_3d_dr.jpg" alt="Inpainted">
+				</div>
+			</div>
+		</div>
+
+		<!-- custom h line -->
+		<hr style="margin: 0 25% 1em 25%;">
+		
+
+		<!-- Citation -->
+		<h3 class="my-5">Citation 
+			<button type="button" class="btn btn-outline-secondary btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Copied!" onclick="CopyToClipboard('bib')">
+			Copy
+			</button>
+		</h3>
+		<div class="col text-start bg-dark bg-opacity-10 rounded-3 px-3">
+		<pre><code id="bib">
+@article{Mori2020InpaintFusion,
+	author={Mori, Shohei and Erat, Okan and Broll, Wolfgang and Saito, Hideo and Schmalstieg, Dieter and Kalkofen, Denis},
+	journal={IEEE Transactions on Visualization and Computer Graphics}, 
+	title={InpaintFusion: Incremental RGB-D Inpainting for 3D Scenes}, 
+	volume={26},
+	number={10},
+	pages={2994--3007},
+	year={2020},
+	doi={10.1109/TVCG.2020.3003768}
+}
+		</code></pre>
+		</div>
+
+		<script src="./assets/js/CopyToClipboard.js"></script>
+		<script src="./assets/js/Popover.js"></script>
+	</div>
+	</section>
+
+
+	<section class="hero-banner bg-dark bg-opacity-10 pt-1 pb-4">
+	<div class="container">
+		<div class="row mt-5">
+			<div class="col-7">
+				<h3>Related Work</h3>
+				<ul>
+					<li><a class="text-decoration-none" href="https://ipsjcva.springeropen.com/articles/10.1186/s41074-017-0028-1" target="_blank">A Survey of Diminished Reality</a></li>
+				</ul>
+				<ul>
+					<li><a class="text-decoration-none" href="https://github.com/Mugichoko445/DRMarkerHiding" target="_blank">Rendering and Visualization in Mixed Reality - Diminished Reality</a></li>
+				</ul>
+				<ul>
+					<li><a class="text-decoration-none" href="https://dl.acm.org/doi/10.1145/3281505.3281545" target="_blank">Perceived Weight of a Rod under Augmented and Diminished Reality Visual Effects</a></li>
+				</ul>
+			</div>
+			<div class="col-5">
+				<h3>Links</h3>
+				<ul>
+					<li><a class="text-decoration-none" href="https://immersive-technology-lab.github.io/" target="_blank">Immersive Technology Lab (TUGraz)</a></li>
+					<li><a class="text-decoration-none" href="https://www.tugraz.at/institute/icg/home/" target="_blank">Institute of Computer Graphics and Vision (TUGraz)</a></li>
+					<li><a class="text-decoration-none" href="http://www.hvrl.ics.keio.ac.jp/" target="_blank">Hyper Vision Research Laboratory (Keio Univ.)</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	</section>
+
+</main>
+</body>
+</html>
