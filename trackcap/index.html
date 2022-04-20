@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>TrackCap: Enabling Smartphones for 3D Interaction on Mobile Head-Mounted Displays</title>
+	
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+	<meta name="description" content="TrackCap: Enabling Smartphones for 3D Interaction on Mobile Head-Mounted Displays">
+	<meta name="keywords" content="input device, TrackCap, smartphone, HID, augmented reality, immersive technology lab, tugraz, chi, remote assistance, industry 4.0">
+	<meta name="author" content="Immersive Technology Lab, TUGraz">
+
+	<!-- Bootstrap v5.1.3 CSS and JS (https://getbootstrap.com/) -->
+	<link href="../common/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="../common/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- definitive-image-comparison-slider by Abel Cabeza Román (https://github.com/abelcabezaroman/definitive-image-comparison-slider) -->
+	<link rel="stylesheet" href="../common/definitive-image-comparison-slider/dics.css">
+	<script src="../common/definitive-image-comparison-slider/dics.js"></script>
+</head>
+
+<body>
+<!-- Begin page content -->
+<main>
+	<section class="hero-banner bg-dark bg-opacity-10 pt-1 pb-4">
+	<div class="container text-center">
+		<!-- Title and a note -->
+		<h1 class="mt-4"><b>TrackCap:</b> Enabling Smartphones for 3D Interaction<br> on Mobile Head-Mounted Displays</h1>
+		<h4 class="text-black-50">Conference on Human Factors in Computing Systems (CHI 2019)</h4>
+		
+
+		<!-- Author info. Tips: https://getbootstrap.com/docs/5.0/layout/grid/ -->
+		<div class="mt-4">
+			<div class="row">
+				<div class="col">
+					<a class="lead link-dark text-decoration-none" href="https://www.tugraz.at/institute/icg/research/team-kalkofen/people/peter-mohr/" target="_blank">Peter Mohr</a><br>
+					<div class="mt-n1"><small>Graz University of Technology, VRVis GmbH</small></div>
+				</div>
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">Markus Tatzgern</a><br>
+					<div class="mt-n1"><small>Salzburg University of Appkied Sciences</small></div>
+				</div>
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">Tobias Langlotz</a><br>
+					<div class="mt-n1"><small>University of Otago</small></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">Andreas Lang</a><br>
+					<div class="mt-n1"><small>Graz University of Technology</small></div>
+				</div>
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">Dieter Schmalstieg</a><br>
+					<div class="mt-n1"><small>Graz University of Technology</small></div>
+				</div>
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">Denis Kalkofen</a><br>
+					<div class="mt-n1"><small>Graz University of Technology</small></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+
+	<section class="hero-banner bg-white shadow-lg shadow pt-4 pb-4">
+	<div class="container text-center">
+		<!-- Teaser image -->
+		<div class="mb-2">
+			<div class="row">
+			<img src="assets/img/teaser5.jpg" class="img-fluid" alt="Teaser: Our system enables using smartphones for 3D interactions in applications on head mounted displays (HMD). It consists of a planar tracking target attached to the HMD, a tracking software on the smartphone that estimates the pose of the phone relative to the HMD, and a network interface that transmits the pose to the HMD. This system enables interactions of the phone with virtual objects that are placed in world coordinates. In this example, we interact with virtual objects by attaching a smartphone to a plastic toy gun. While previous approaches require holding the device in the field of view of the HMD's camera (black), our system supports a large interaction space by using the camera on the phone for tracking (blue).">
+			</div>
+		</div>
+
+
+		<!-- Content icons -->
+		<div class="mt-5">
+			<div class="row mb-3">
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="https://dl.acm.org/doi/10.1145/3290605.3300815" target="_blank">
+						<img src="../common/icons-1.8.1/link-45deg.svg" alt="Link to ACM DL>" width="40" height="40" title="ACM link">
+						<figcaption class="figure-caption mt-1"><b>ACM</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="https://www.tugraz.at/fileadmin/user_upload/Institute/ICG/Downloads/team_schmalstieg/peter_mohr/TrackCap_004_final.pdf" target="_blank">
+						<img src="../common/icons-1.8.1/file-earmark-text.svg" alt="Link to Author Preprint" width="40" height="40" title="Author Preprint">
+						<figcaption class="figure-caption mt-1"><b>Paper Preprint</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="https://youtu.be/4lIx0qxJYPQ" target="_blank">
+						<img src="../common/icons-1.8.1/file-earmark-play-fill.svg" alt="Link to Technical Video" width="40" height="40" title="Technical Video">
+						<figcaption class="figure-caption mt-1"><b>Video</b></figcaption>
+					</a></figure>
+				</div>
+				
+			</div>
+		</div>
+		
+
+		<!-- custom h line -->
+		<hr style="margin: 0 25% 1rem 25%;">
+		
+
+		<!-- Abstract -->
+		<h3 class="my-5">Abstract</h3>
+		<p class="mb-5 text-start">
+			The latest generation of consumer market Head-mounted displays (HMD) now include self-contained inside-out tracking of head motions, 
+			which makes them suitable for mobile applications. However, 3D tracking of input devices is either not included at all or requires to 
+			keep the device in sight, so that it can be observed from a sensor mounted on the HMD. Both approaches make natural interactions cumbersome 
+			in mobile applications. TrackCap, a novel approach for 3D tracking of input devices, turns a conventional smartphone into a precise 
+			6DOF input device for an HMD user. The device can be conveniently operated both inside and outside the HMD's field of view, while it 
+			provides additional 2D input and output capabilities.
+		</p>
+		
+
+		<!-- custom h line -->
+		<hr style="margin: 0 25% 1em 25%;">
+		
+
+		<!-- Results -->
+		<h3 class="my-5">Overview</h3>
+
+		<!-- Teaser image -->
+		<div class="mb-2">
+			<div class="row">
+			<img src="assets/img/figure_swipe_point.png" class="img-fluid" alt="TrackCap enables new means of interaction. For example, rays for selecting objects can be quickly
+			defined by swiping over the touchscreen (also see the accompanying video). (b) The high input and output fidelity of the
+			smartphone can also be used to display detail of the selected objects and to enable high precision interactions with them">
+			TrackCap enables new means of interaction. For example, rays for selecting objects can be quickly
+			defined by swiping over the touchscreen (also see the accompanying video). (b) The high input and output fidelity of the
+			smartphone can also be used to display detail of the selected objects and to enable high precision interactions with them	
+		</div>
+
+		<h5 class="my-5">Gamecontroller Setup</h3>
+			<div class="mb-2">
+				<div class="row">
+				<img src="assets/img/holoblaster.jpg" class="img-fluid" alt="TrackCap gamecontroller">
+			</div>
+
+
+
+
+		<h5 class="my-5">Tracked controller with high-resolution display</h3>
+		<div id="video_background" >
+			<video id="ar_video" class="img-fluid" style="object-fit:fill" playsinline muted preload autoplay loop>
+				<source src="assets/img/TrackCap.mp4" type="video/mp4">
+				<p>Your user agent does not support the HTML5 Video element.</p>
+
+			</video>
+		</div>	
+
+		
+		<!-- custom h line -->
+		<hr style="margin: 0 25% 1em 25%;">
+		
+
+		<!-- Citation -->
+		<h3 class="my-5">Citation 
+			<button type="button" class="btn btn-outline-secondary btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Copied!" onclick="CopyToClipboard('bib')">
+			Copy
+			</button>
+		</h3>
+		<div class="col text-start bg-dark bg-opacity-10 rounded-3 px-3">
+		<pre><code id="bib">
+@inproceedings{10.1145/3290605.3300815,
+	author = {Mohr, Peter and Tatzgern, Markus and Langlotz, Tobias and Lang, Andreas and Schmalstieg, Dieter and Kalkofen, Denis},
+	title = {TrackCap: Enabling Smartphones for 3D Interaction on Mobile Head-Mounted Displays},
+	year = {2019},
+	isbn = {9781450359702},
+	publisher = {Association for Computing Machinery},
+	address = {New York, NY, USA},
+	url = {https://doi.org/10.1145/3290605.3300815},
+	doi = {10.1145/3290605.3300815},
+	booktitle = {Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems},
+	pages = {1–11},
+	numpages = {11},
+	keywords = {3d pointing, mixed reality, hmd, input devices, mobile devices, augmented reality, wearable computing},
+	location = {Glasgow, Scotland Uk},
+	series = {CHI '19}
+	}
+	
+		</code></pre>
+		</div>
+
+		<script src="../common/copy-to-clipboard-js/CopyToClipboard.js"></script>
+		<script src="../common/copy-to-clipboard-js/Popover.js"></script>
+	</div>
+	</section>
+
+
+	<section class="hero-banner bg-dark bg-opacity-10 pt-1 pb-4">
+	<div class="container">
+		<div class="row mt-5">
+			<div class="col-7">
+				
+			</div>
+			<div class="col-5">
+				
+				<ul>
+					<li><a class="link-dark text-decoration-none" href="https://immersive-technology-lab.github.io/" target="_blank">Immersive Technology Lab (TUGraz)</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	</section>
+
+</main>
+</body>
+</html>
