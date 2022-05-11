@@ -1,315 +1,182 @@
-<script src="https://www.google.com/jsapi" type="text/javascript"></script> 
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-
-<script src="before-after/before-after.min.js"></script>
-<link type="text/css" href="before-after/before-after.min.css" rel="stylesheet">
-
-<script>
-function CopyToClipboard(id)
-{
-var r = document.createRange();
-r.selectNode(document.getElementById(id));
-window.getSelection().removeAllRanges();
-window.getSelection().addRange(r);
-document.execCommand('copy');
-window.getSelection().removeAllRanges();
-}
-</script>
-
-<style type="text/css">
-	body {
-		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-		font-weight:300;
-		font-size:18px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	
-	h1 {
-		font-size:32px;
-		font-weight:300;
-	}
-	
-	.disclaimerbox {
-		background-color: #eee;		
-		border: 1px solid #eeeeee;
-		border-radius: 10px ;
-		-moz-border-radius: 10px ;
-		-webkit-border-radius: 10px ;
-		padding: 20px;
-	}
-
-	video.header-vid {
-		height: 140px;
-		border: 1px solid black;
-		border-radius: 10px ;
-		-moz-border-radius: 10px ;
-		-webkit-border-radius: 10px ;
-	}
-	
-	img.header-img {
-		height: 140px;
-		border: 1px solid black;
-		border-radius: 10px ;
-		-moz-border-radius: 10px ;
-		-webkit-border-radius: 10px ;
-	}
-	
-	img.rounded {
-		border: 1px solid #eeeeee;
-		border-radius: 10px ;
-		-moz-border-radius: 10px ;
-		-webkit-border-radius: 10px ;
-	}
-    
-	a:link,a:visited
-	{
-		color: #1367a7;
-		text-decoration: none;
-	}
-	a:hover {
-		color: #208799;
-	}
-	
-	td.dl-link {
-		height: 160px;
-		text-align: center;
-		font-size: 22px;
-	}
-	
-	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
-		box-shadow:
-		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
-		5px 5px 0 0px #fff, /* The second layer */
-		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
-		10px 10px 0 0px #fff, /* The third layer */
-		10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
-		15px 15px 0 0px #fff, /* The fourth layer */
-		15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
-		20px 20px 0 0px #fff, /* The fifth layer */
-		20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
-		25px 25px 0 0px #fff, /* The fifth layer */
-		25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
-		margin-left: 10px;
-		margin-right: 45px;
-	}
-
-	.paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
-		box-shadow:
-		0px 0px 1px 1px rgba(0,0,0,0.35); /* The top layer shadow */
-
-		margin-left: 10px;
-		margin-right: 45px;
-	}
-
-
-	.layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
-		box-shadow:
-		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
-		5px 5px 0 0px #fff, /* The second layer */
-		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
-		10px 10px 0 0px #fff, /* The third layer */
-		10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
-		margin-top: 5px;
-		margin-left: 10px;
-		margin-right: 30px;
-		margin-bottom: 5px;
-	}
-	
-	.vert-cent {
-		position: relative;
-		top: 50%;
-		transform: translateY(-50%);
-	}
-	
-	hr
-	{
-		border: 0;
-		height: 1px;
-		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-	}
-    
-    .pointable {
-       cursor: pointer;
-    }
-    
-    .vid_background {
-        background: url('resources/prototype_closed.jpg') no-repeat top left transparent;
-         width: 1024px; /* Adjust TV image width */
-        height: 576px; /* Adjust TV image height */
-        position: relative;
-    }
-    
-    .testtable
-    { 
-        margin-left: auto;
-        margin-right: auto;
-    }
-</style>
-
-<html>
+<!doctype html>
+<html lang="en">
 <head>
 	<title>Neural Cameras: Learning Camera Characteristics for Coherent Mixed Reality Rendering</title>
+	
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+	<meta name="description" content="Neural Cameras: Learning Camera Characteristics for Coherent Mixed Reality Rendering is an IEEE ISMAR Paper.">
+	<meta name="keywords" content="best conference paper, neural cameras, mixed reality, augmented reality, immersive technology lab, tugraz, tvcg, ieee vr">
+	<meta name="author" content="Immersive Technology Lab, TUGraz">
+
+	<!-- Bootstrap v5.1.3 CSS and JS (https://getbootstrap.com/) -->
+	<link href="../common/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="../common/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- definitive-image-comparison-slider by Abel Cabeza Román (https://github.com/abelcabezaroman/definitive-image-comparison-slider) -->
+	<link rel="stylesheet" href="../common/definitive-image-comparison-slider/dics.css">
+	<script src="../common/definitive-image-comparison-slider/dics.js"></script>
+	<script src="assets/js/BeforeAfter.js"></script> <!-- Change this to modify the effect -->
+
+	<!-- custom fonts -->
+	<link rel="stylesheet" href="../common/fonts/latofonts.css">
+	<link rel="stylesheet" href="css/fonts.css">
 </head>
 
 <body>
-	<br>
-	<center>
-        <span style="font-size:36px">Neural Cameras: Learning Camera Characteristics for Coherent Mixed Reality Rendering</span> </br>
-         <span style="font-size:24px; color:#878787">Best Paper at IEEE ISMAR 2021</span></center></br></br>
-		<table align=center width=1024px>
-			<table align=center width=1000px>
-				<tr>
-					<td align=center width=100px>
-						<center>
-							<span style="font-size:24px">David Mandl</span></br>
-                            <span style="font-size:14px">Graz University of Technology</span>
-						</center>
-					</td>
-                    <td align=center width=100px>
-						<center>
-							<span style="font-size:24px">Peter Mohr</span></br>
-                            <span style="font-size:14px">Graz University of Technology</span>
-						</center>
-					</td>
-					<td align=center width=100px>
-						<center>
-							<span style="font-size:24px">Tobias Langlotz</span></br>
-                            <span style="font-size:14px">University of Otago</span>
-						</center>
-					</td>
-					<td align=center width=100px>
-						<center>
-							<span style="font-size:24px">Christoph Ebner</span></br>
-                            <span style="font-size:14px">Graz University of Technology</span>
-						</center>
-					</td>
-				</tr>
-			</table></br>
-            <table align=center width=1024px>
-			<table align=center width=800px>
-				<tr>
-					<td align=center width=100px>
-						<center>
-							<span style="font-size:24px">Shohei Mori</span></br>
-                            <span style="font-size:14px">Graz University of Technology</span>
-						</center>
-					</td>
-					<td align=center width=100px>
-						<center>
-							<span style="font-size:24px">Stefanie Zollmann</span></br>
-                            <span style="font-size:14px">University of Otago</span>
-						</center>
-					</td>
-                    <td align=center width=100px>
-						<center>
-							<span style="font-size:24px">Peter M. Roth</span></br>
-                            <span style="font-size:14px">Technical University of Munich</span>
-						</center>
-					</td>
-                    <td align=center width=100px>
-						<center>
-							<span style="font-size:24px">Denis Kalkofen</span></br>
-                            <span style="font-size:14px">Graz University of Technology</span>
-						</center>
-					</td>
-				</tr>
-			</table></br>
-		</table>
-	</center>
+<!-- Begin page content -->
+<main>
+	<section class="hero-banner bg-dark bg-opacity-10 pt-1 pb-4">
+	<div class="container text-center">
+		<!-- Title and a note -->
+		<h1 class="mt-4"><strong>Neural Cameras</strong>: Learning Camera Characteristics for Coherent Mixed Reality Rendering</h1>
+		<h4 class="text-black-50">IEEE Int. Symp. on Mixed and Augmented Reality (ISMAR)</h4>
+		<h4 class="text-black-50"><strong>Best Conference Paper</strong></h4>
 
-	<center>
-		<table align=center width=850px>
-			<tr>
-				<td width=260px>
-					<center>
-						<img class="round" style="width:1100px" src="./resources/teaser.jpg"/>
-					</center>
-				</td>
-			</tr>
-		</table>
-	</center></br></br>
-			<table align=center width=800px>
-				<tr>
-					<td align=center width=64px>
-						<center>
-                            <a href="resources/paper.pdf">
-                            <image src="resources/bootstrap_icons/file-earmark-text.svg" height="100px">
-                                <h4><strong>Paper</strong></h4>
-                            </a>
-						</center>
-					</td>
-                    <td align=center width=64px>
-						<center>
-                            <a href="https://www.youtube.com/watch?v=kdlRDEuS7Zg">
-                            <image src="resources/bootstrap_icons/youtube.svg" height="100px">
-                                <h4><strong>Video</strong></h4>
-                            </a>
-						</center>
-					</td>
-					<td align=center width=64px>
-						<center>
-                            <a href="resources/slides.pdf">
-                            <image src="resources/bootstrap_icons/file-earmark-slides.svg" height="100px">
-                                <h4><strong>Slides</strong></h4>
-                            </a>
-						</center>
-					</td>
-					<td align=center width=64px>
-						<center>
-                            <a href="https://youtu.be/u0ZPw12m2GQ?list=PLhPegsM-75z05ZO0u_frike7cy2yZ1GfD&t=2156">
-                            <image src="resources/bootstrap_icons/mic.svg" height="100px">
-                                <h4><strong>Talk</strong></h4>
-                            </a>
-						</center>
-					</td>
-				</tr>
-			</table>
+		<!-- Author info. Tips: https://getbootstrap.com/docs/5.0/layout/grid/ -->
+		<div class="mt-4">
+			<div class="row">
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">David Mandl</a><br>
+					<small>Graz University of Technology</small>
+				</div>
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">Peter Mohr</a><br>
+					<small>Graz University of Technology</small>
+				</div>
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">Tobias Langlotz</a><br>
+					<small>University of Otago</small>
+				</div>
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">Christoph Ebner</a><br>
+					<small>Graz University of Technology</small>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<a class="lead link-dark text-decoration-none" href="https://mugichoko445.bitbucket.io/" target="_blank">Shohei Mori</a><br>
+					<small>Graz University of Technology</small>
+				</div>
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">Stefanie Zollmann</a><br>
+					<small>University of Otago</small>
+				</div>
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">Peter M. Roth</a><br>
+					<small>Technical University of Munich</small>
+				</div>
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">Denis Kalkofen</a><br>
+					<small>Graz University of Technology</small>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
 
-	<hr>
+	<section class="hero-banner bg-white shadow-lg shadow pt-4 pb-4">
+	<div class="container text-center">
+		<!-- Teaser image -->
+		<div class="mb-2">
+			<div class="row">
+			<img src="assets/img/teaser.jpg" class="img-fluid" alt="Teaser image">
+			</div>
+		</div>
 
-	<table align=center width=850px>
-		<center><h1>Abstract</h1></center>
-		<tr>
-			<td>
-				Coherent rendering is important for generating plausible Mixed Reality presentations of virtual objects within a user’s real-world environment. Besides photo-realistic rendering and correct lighting, visual coherence requires simulating the imaging system that is used to capture the real environment. While existing approaches either focus on a specific camera or a specific component of the imaging system, we introduce Neural Cameras, the first approach that jointly simulates all major components of an arbitrary modern camera using neural networks. Our system allows for adding new cameras to the framework by learning the visual properties from a database of images that has been captured using the physical camera. We present qualitative and quantitative results and discuss future direction for research that emerge from using Neural Cameras.
-			</td>
-		</tr>
-	</table><br>
 
-	<hr>
-<center><h1>Citation<input type="image" src="resources/bootstrap_icons/files.svg" height="20px" onclick="CopyToClipboard('cite_bib')"></h1></center>
-	<table align=center width=1000px>
-	<tr>
-		<td align=left width=125px>
-			<center>
-				<p id="cite_bib" style="font-size:14px;  white-space: pre-wrap;">@INPROCEEDINGS{Mandl2021, 
-author={Mandl, David and Roth, Peter M. and Langlotz, Tobias and Ebner, Christoph and Mori, Shohei and Zollmann, Stefanie and Mohr, Peter and Kalkofen, Denis},
-booktitle={2021 IEEE International Symposium on Mixed and Augmented Reality (ISMAR)}, 
-title={Neural Cameras: Learning Camera Characteristics for Coherent Mixed Reality Rendering}, 
-year={2021},
-pages={508-516},
-doi={10.1109/ISMAR52148.2021.00068}}
-				</p>
-			</center>
-		</td>
-	</table></br>
+		<!-- Content icons -->
+		<!-- Bootstrap icons v.1.8.1 (https://icons.getbootstrap.com/) -->
+		<div class="mt-5">
+			<div class="row mb-3">
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="https://doi.org/10.1109/ISMAR52148.2021.00068" target="_blank">
+						<img src="../common/icons-1.8.1/link-45deg.svg" alt="Link to IEEE Xplore" width="70" height="70" title="IEEE Xplore">
+						<figcaption class="figure-caption mt-1"><b>Xplore</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="assets/ismar21_mandl_paper.pdf" target="_blank">
+						<img src="../common/icons-1.8.1/file-earmark-text.svg" alt="Link to Author Preprint" width="70" height="70" title="Author Preprint">
+						<figcaption class="figure-caption mt-1"><b>Preprint</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="https://www.youtube.com/watch?v=kdlRDEuS7Zg" target="_blank">
+						<img src="../common/icons-1.8.1/file-earmark-play-fill.svg" alt="Link to Technical Video" width="70" height="70" title="Technical Video">
+						<figcaption class="figure-caption mt-1"><b>Video</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="https://youtu.be/u0ZPw12m2GQ?list=PLhPegsM-75z05ZO0u_frike7cy2yZ1GfD&t=2156" target="_blank">
+						<img src="../common/icons-1.8.1/mic.svg" alt="Link to IEEE VR Talk" width="70" height="70" title="IEEE VR Talk">
+						<figcaption class="figure-caption mt-1"><b>Talk</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="assets/ismar21_mandl_slides.pdf" target="_blank">
+						<img src="../common/icons-1.8.1/file-earmark-slides.svg" alt="Link to Slides" width="70" height="70" title="Slides">
+						<figcaption class="figure-caption mt-1"><b>Slides</b></figcaption>
+					</a></figure>
+				</div>
+			</div>
+		</div>
+		
 
-	<hr>
-	<br>
+		<!-- custom h line -->
+		<hr style="margin: 0 25% 1rem 25%;">
+		
 
-	<table align=center width=900px>
-		<tr>
-			<td width=400px>
-				<left>
-					<center><h1>Acknowledgements</h1></center>
-					This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a href="https://github.com/richzhang/webpage-template">here</a>.
-				</left>
-			</td>
-		</tr>
-	</table>
+		<!-- Abstract -->
+		<h3 class="my-5">Abstract</h3>
+		<p class="mb-5 text-start">
+			Coherent rendering is important for generating plausible Mixed Reality presentations of virtual objects within a user’s real-world environment. Besides photo-realistic rendering and correct lighting, visual coherence requires simulating the imaging system that is used to capture the real environment. While existing approaches either focus on a specific camera or a specific component of the imaging system, we introduce Neural Cameras, the first approach that jointly simulates all major components of an arbitrary modern camera using neural networks. Our system allows for adding new cameras to the framework by learning the visual properties from a database of images that has been captured using the physical camera. We present qualitative and quantitative results and discuss future direction for research that emerge from using Neural Cameras.
+		</p>
+		
 
-<br>
+		<!-- custom h line -->
+		<hr style="margin: 0 25% 1em 25%;">
+
+
+		<!-- Citation -->
+		<h3 class="my-5">Citation 
+			<button type="button" class="btn btn-outline-secondary btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Copied!" onclick="CopyToClipboard('bib')">
+			Copy
+			</button>
+		</h3>
+		<div class="col text-start bg-dark bg-opacity-10 rounded-3 px-3">
+		<pre><code id="bib">
+@inproceedings{Mandl2021, 
+	author={Mandl, David and Roth, Peter M. and Langlotz, Tobias and Ebner, Christoph and Mori, Shohei and Zollmann, Stefanie and Mohr, Peter and Kalkofen, Denis},
+	booktitle={2021 IEEE International Symposium on Mixed and Augmented Reality (ISMAR)}, 
+	title={Neural Cameras: Learning Camera Characteristics for Coherent Mixed Reality Rendering}, 
+	year={2021},
+	pages={508-516},
+	doi={10.1109/ISMAR52148.2021.00068}
+}
+		</code></pre>
+		</div>
+
+		<script src="../common/copy-to-clipboard-js/CopyToClipboard.js"></script>
+		<script src="../common/copy-to-clipboard-js/Popover.js"></script>
+	</div>
+	</section>
+
+
+	<section class="hero-banner bg-dark bg-opacity-10 pt-1 pb-4">
+	<div class="container">
+		<div class="row mt-5">
+			<div class="col">
+				<h3>Links</h3>
+				<ul>
+					<li><a class="link-dark text-decoration-none" href="https://immersive-technology-lab.github.io/" target="_blank">Immersive Technology Lab (TUGraz)</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	</section>
+
+</main>
 </body>
 </html>
-
