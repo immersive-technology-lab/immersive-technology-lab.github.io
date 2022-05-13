@@ -155,24 +155,32 @@
 			else if (video_notes.style.display == "inline")
 			{
 				video_notes.style.display = "none";
+				video_notes.pause();
+				video_notes.currentTime = 0;
+				video_notes.load();
+
 				video_rev.style.display = "inline";
 				video_rev.play();
 			}
 			else if (video_notes.style.display == "none")
 			{
-				video_notes.style.display = "inline";
 				video_rev.style.display = "none";
+				video_rev.pause();
+				video_rev.currentTime = 0;
+				video_rev.load();
+
+				video_notes.style.display = "inline";
 				video_notes.play();
 			}
 		}
 		</script>
 
 		<div class="row" id="video_background">
-			<video id="prototype_video_notes" playsinline muted preload onclick="ChangeAndPlayVideo()" style="display: initial;">
+			<video id="prototype_video_notes" onclick="ChangeAndPlayVideo()" style="display: initial;">
 				<source src="assets/img/prototype_notes.mp4" type="video/mp4">
 				<p>Your user agent does not support the HTML5 Video element.</p>
 			</video>
-			<video id="prototype_video_rev" playsinline muted preload onclick="ChangeAndPlayVideo()" style="display: none;">
+			<video id="prototype_video_rev" onclick="ChangeAndPlayVideo()" style="display: none;">
 				<source src="assets/img/prototype_rev.mp4" type="video/mp4">
 				<p>Your user agent does not support the HTML5 Video element.</p>
 			</video>
