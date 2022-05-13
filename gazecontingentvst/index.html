@@ -137,25 +137,43 @@
 
 		<!-- Results -->
 		<h3 class="my-5">Prototype</h3>
-
 		<script>
 		function ChangeAndPlayVideo()
 		{
-			var video = document.getElementById('prototype_video');
-			var src_attrib = video.getAttribute('src');
-			var mode = src_attrib == "assets/img/prototype_notes.mp4" && src_attrib != null;
-			if (mode) video.setAttribute('src', 'assets/img/prototype_rev.mp4');
-			else video.setAttribute('src', 'assets/img/prototype_notes.mp4');
-			video.play();
+			var video_notes = document.getElementById('prototype_video_notes');
+			var video_rev = document.getElementById('prototype_video_rev');
+
+			if (video_notes.style.display == "initial")
+			{
+				video_notes.style.display = "inline";
+				video_notes.play();
+			}
+			else if (video_notes.style.display == "inline")
+			{
+				video_notes.style.display = "none";
+				video_rev.style.display = "inline";
+				video_rev.play();
+			}
+			else if (video_notes.style.display == "none")
+			{
+				video_notes.style.display = "inline";
+				video_rev.style.display = "none";
+				video_notes.play();
+			}
 		}
 		</script>
-        
-        <div class="row" id="video_background">
-            <video id="prototype_video" class="pointable" playsinline muted preload onclick="ChangeAndPlayVideo()">
-                <source src="assets/img/prototype_notes.mp4" type="video/mp4">
-                <p>Your user agent does not support the HTML5 Video element.</p>
-            </video>
-        </div>
+
+		<div class="row" id="video_background">
+			<video id="prototype_video_notes" playsinline muted preload onclick="ChangeAndPlayVideo()" style="display: initial;">
+				<source src="assets/img/prototype_notes.mp4" type="video/mp4">
+				<p>Your user agent does not support the HTML5 Video element.</p>
+			</video>
+			<video id="prototype_video_rev" playsinline muted preload onclick="ChangeAndPlayVideo()" style="display: none;">
+				<source src="assets/img/prototype_rev.mp4" type="video/mp4">
+				<p>Your user agent does not support the HTML5 Video element.</p>
+			</video>
+		</div>
+
 
 		<p class="my-5 text-start">
 			Our video see-through display prototype can be built with off-the-shelf components in a relatively small form factor. <strong>Click on the prototype to explode the view</strong>. The display consists of two LCDs per eye which are combined by a beam splitter. Focus tunable lenses allow to shift the virtual image of the LCDs to the vergence distance of the user, which is measured by a binocular eye tracker. For capturing, we use industrial cameras. The focus distance of the cameras is controlled by focus tunable lenses. Additionally, we include a 6DoF tracker, and a hand tracker in our prototype.
@@ -227,17 +245,17 @@
 		<h3 class="my-5">Comparison to Single Layer Varifocal</h3>
 
 		<script>
-			function ChangeCompImages(slider_value)
-			{
-				var val = document.getElementById("slider_value_comp");
-				val.textContent = slider_value;
+		function ChangeCompImages(slider_value)
+		{
+			var val = document.getElementById("slider_value_comp");
+			val.textContent = slider_value;
 
-				var vari_img = document.getElementById("comp_vari");
-				var layered_img = document.getElementById("comp_layered");
+			var vari_img = document.getElementById("comp_vari");
+			var layered_img = document.getElementById("comp_layered");
 
-				layered_img.setAttribute('src', "assets/img/comp/2l_et" + slider_value + ".jpg");
-				vari_img.setAttribute('src', "assets/img/comp/vari_et_" + slider_value + ".jpg");
-			}
+			layered_img.setAttribute('src', "assets/img/comp/2l_et" + slider_value + ".jpg");
+			vari_img.setAttribute('src', "assets/img/comp/vari_et_" + slider_value + ".jpg");
+		}
 		</script>
 
 		<div class="row my">
