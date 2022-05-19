@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Neural Cameras: Learning Camera Characteristics for Coherent Mixed Reality Rendering</title>
+	
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+	<meta name="description" content="Neural Cameras: Learning Camera Characteristics for Coherent Mixed Reality Rendering is an IEEE ISMAR Paper.">
+	<meta name="keywords" content="best conference paper, neural cameras, mixed reality, augmented reality, immersive technology lab, tugraz, tvcg, ieee vr">
+	<meta name="author" content="Immersive Technology Lab, TUGraz">
+
+	<!-- Bootstrap v5.1.3 CSS and JS (https://getbootstrap.com/) -->
+	<link href="../../common/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="../../common/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- definitive-image-comparison-slider by Abel Cabeza Román (https://github.com/abelcabezaroman/definitive-image-comparison-slider) -->
+	<link rel="stylesheet" href="../../common/definitive-image-comparison-slider/dics.css">
+	<script src="../../common/definitive-image-comparison-slider/dics.js"></script>
+	<script src="assets/js/BeforeAfter.js"></script> <!-- Change this to modify the effect -->
+
+	<!-- custom fonts -->
+	<link rel="stylesheet" href="../../common/fonts/latofonts.css">
+	<link rel="stylesheet" href="css/fonts.css">
+</head>
+
+<body>
+<!-- Begin page content -->
+<main>
+	<section class="hero-banner bg-dark bg-opacity-10 pt-1 pb-4">
+	<div class="container text-center">
+		<!-- Title and a note -->
+		<h1 class="mt-4"><strong>Neural Cameras</strong>: Learning Camera Characteristics for Coherent Mixed Reality Rendering</h1>
+		<h4 class="text-black-50">IEEE Int. Symp. on Mixed and Augmented Reality (ISMAR)</h4>
+		<h4 class="text-black-50"><strong>Best Conference Paper</strong></h4>
+
+		<!-- Author info. Tips: https://getbootstrap.com/docs/5.0/layout/grid/ -->
+		<div class="mt-4">
+			<div class="row">
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">David Mandl</a><br>
+					<small>Graz University of Technology</small>
+				</div>
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">Peter Mohr</a><br>
+					<small>Graz University of Technology</small>
+				</div>
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">Tobias Langlotz</a><br>
+					<small>University of Otago</small>
+				</div>
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">Christoph Ebner</a><br>
+					<small>Graz University of Technology</small>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<a class="lead link-dark text-decoration-none" href="https://mugichoko445.bitbucket.io/" target="_blank">Shohei Mori</a><br>
+					<small>Graz University of Technology</small>
+				</div>
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">Stefanie Zollmann</a><br>
+					<small>University of Otago</small>
+				</div>
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">Peter M. Roth</a><br>
+					<small>Technical University of Munich</small>
+				</div>
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">Denis Kalkofen</a><br>
+					<small>Graz University of Technology</small>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+
+	<section class="hero-banner bg-white shadow-lg shadow pt-4 pb-4">
+	<div class="container text-center">
+		<!-- Teaser image -->
+		<div class="mb-2">
+			<div class="row">
+			<img src="assets/img/teaser.jpg" class="img-fluid" alt="Teaser image">
+			</div>
+		</div>
+
+
+		<!-- Content icons -->
+		<!-- Bootstrap icons v.1.8.1 (https://icons.getbootstrap.com/) -->
+		<div class="mt-5">
+			<div class="row mb-3">
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="https://doi.org/10.1109/ISMAR52148.2021.00068" target="_blank">
+						<img src="../../common/icons-1.8.1/link-45deg.svg" alt="Link to IEEE Xplore" width="70" height="70" title="IEEE Xplore">
+						<figcaption class="figure-caption mt-1"><b>Xplore</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="assets/ismar21_mandl_paper.pdf" target="_blank">
+						<img src="../../common/icons-1.8.1/file-earmark-text.svg" alt="Link to Author Preprint" width="70" height="70" title="Author Preprint">
+						<figcaption class="figure-caption mt-1"><b>Preprint</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="https://www.youtube.com/watch?v=kdlRDEuS7Zg" target="_blank">
+						<img src="../../common/icons-1.8.1/file-earmark-play-fill.svg" alt="Link to Technical Video" width="70" height="70" title="Technical Video">
+						<figcaption class="figure-caption mt-1"><b>Video</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="https://youtu.be/u0ZPw12m2GQ?list=PLhPegsM-75z05ZO0u_frike7cy2yZ1GfD&t=2156" target="_blank">
+						<img src="../../common/icons-1.8.1/mic.svg" alt="Link to IEEE VR Talk" width="70" height="70" title="IEEE VR Talk">
+						<figcaption class="figure-caption mt-1"><b>Talk</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="assets/ismar21_mandl_slides.pdf" target="_blank">
+						<img src="../../common/icons-1.8.1/file-earmark-slides.svg" alt="Link to Slides" width="70" height="70" title="Slides">
+						<figcaption class="figure-caption mt-1"><b>Slides</b></figcaption>
+					</a></figure>
+				</div>
+			</div>
+		</div>
+		
+
+		<!-- custom h line -->
+		<hr style="margin: 0 25% 1rem 25%;">
+		
+
+		<!-- Abstract -->
+		<h3 class="my-5">Abstract</h3>
+		<p class="mb-5 text-start">
+			Coherent rendering is important for generating plausible Mixed Reality presentations of virtual objects within a user’s real-world environment. Besides photo-realistic rendering and correct lighting, visual coherence requires simulating the imaging system that is used to capture the real environment. While existing approaches either focus on a specific camera or a specific component of the imaging system, we introduce Neural Cameras, the first approach that jointly simulates all major components of an arbitrary modern camera using neural networks. Our system allows for adding new cameras to the framework by learning the visual properties from a database of images that has been captured using the physical camera. We present qualitative and quantitative results and discuss future direction for research that emerge from using Neural Cameras.
+		</p>
+		
+
+		<!-- custom h line -->
+		<hr style="margin: 0 25% 1em 25%;">
+
+
+		<!-- Citation -->
+		<h3 class="my-5">Citation 
+			<button type="button" class="btn btn-outline-secondary btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Copied!" onclick="CopyToClipboard('bib')">
+			Copy
+			</button>
+		</h3>
+		<div class="col text-start bg-dark bg-opacity-10 rounded-3 px-3">
+		<pre><code id="bib">
+@inproceedings{Mandl2021, 
+	author={Mandl, David and Roth, Peter M. and Langlotz, Tobias and Ebner, Christoph and Mori, Shohei and Zollmann, Stefanie and Mohr, Peter and Kalkofen, Denis},
+	booktitle={2021 IEEE International Symposium on Mixed and Augmented Reality (ISMAR)}, 
+	title={Neural Cameras: Learning Camera Characteristics for Coherent Mixed Reality Rendering}, 
+	year={2021},
+	pages={508-516},
+	doi={10.1109/ISMAR52148.2021.00068}
+}
+		</code></pre>
+		</div>
+
+		<script src="../../common/copy-to-clipboard-js/CopyToClipboard.js"></script>
+		<script src="../../common/copy-to-clipboard-js/Popover.js"></script>
+	</div>
+	</section>
+
+
+	<section class="hero-banner bg-dark bg-opacity-10 pt-1 pb-4">
+	<div class="container">
+		<div class="row mt-5">
+			<div class="col">
+				<h3>Links</h3>
+				<ul>
+					<li><a class="link-dark text-decoration-none" href="https://immersive-technology-lab.github.io/" target="_blank">Immersive Technology Lab (TUGraz)</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	</section>
+
+</main>
+</body>
+</html>
