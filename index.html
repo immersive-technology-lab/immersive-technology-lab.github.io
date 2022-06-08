@@ -1,31 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Immersive Technology Lab</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Immersive Technology Lab</title>
+
+	<link rel="stylesheet" href="common/bulma-0.9.3/css/bulma.min.css">
+	<link rel="stylesheet" href="common/fontawesome-free-6.1.1-web/css/all.css">
+	<link rel="stylesheet" href="common/academicons-1.9.2/css/academicons.min.css">
+	<link rel="stylesheet" href="common/fonts/latofonts.css">
+	<link rel="stylesheet" href="css/itl.css">
 </head>
+
+
 <body>
-  <p>Under Construction ...</p>
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+	<div class="container is-max-desktop">
+		<div class="navbar-brand has-text-right">
+			<a class="navbar-item" href="index.html">
+				<img src="assets/logos/itl_logo_gray.png" width="28" height="28">
+			</a>
 
-  <a href="gazecontingentvst/index.html">
-  <p>Video See-Through Mixed Reality with Focus Cues</p>
-  </a>
+			<a class="navbar-item" href="team.html">team</a>
+			<a class="navbar-item" href="publications.html">publications</a>
+			<a class="navbar-item" href="contact.html">contact</a>
+		</div>
+	</div>
+</nav>
 
-  <a href="arheroworkshop/index.html">
-  <p>AR Hero: Generating Interactive Augmented Reality Guitar Tutorials</p>
-  </a>
+<section class="section has-background-light" id="about">
+	<div class="container is-max-desktop mt-5">
+		<div class="columns is-mobile is-vcentered">
+			<div class="column is-narrow">
+				<figure class="image is-64x64 is-center">
+					<img src="assets/logos/itl_logo_gray_b.png">
+				</figure>
+			</div>
+			<div class="column">
+				<div class="block">
+					<h1 class="title">Immersive Technology Lab</h1>
+					<h2 class="subtitle">Institute of Computer Graphics and Vision, TUGraz</h2>
 
-  <a href="inpaintfusion/index.html">
-  <p>InpaintFusion: Incremental RGB-D Inpainting for 3D Scenes</p>
-  </a>
-  
-  <a href="neuralcameras/index.html">
-  <p>Neural Cameras: Learning Camera Characteristics for Coherent Mixed Reality Rendering</p>
-  </a>
-  
-  <a href="videoannotatedtutorials/index.html">
-  <p>Video-Annotated Augmented Reality Assembly Tutorials</p>
-  </a>
+				</div>
+			</div>
+		</div>
+		<div class="columns">
+			<div class="column is-full">
+				<div class="block has-text-justified">
+					Our research is focused on <strong>situated visualization</strong> for augmented reality, <strong>photometric registration</strong> for augmented reality rendering, and <strong>authoring</strong> for augmented/virtual reality.
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
+
+<section class="section" id="research">
+	<div class="container is-max-desktop">
+		<div class="columns">
+			<div class="column">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<img src="assets/images/top/situated_vis.jpg" alt="situated_vis.jpg">
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="content">
+							<strong>Situated visualization.</strong> Augmented reality technology enables to visualize data in situ for relevant people. Our research interests include <strong><a href="projects/mrlightfields/index.html">on-site light field capturing and visualization</a></strong>.
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<img src="assets/images/top/coherent_ar.jpg" alt="coherent_ar.jpg">
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="content">
+							<strong>Photometric registration.</strong> Coherent visuals of real and virtual content are essential in augmented reality. Our interests lie in solving this problem with <strong><a href="#">learnable light probes</a></strong> and <strong><a href="projects/neuralcameras/index.html">learned camera components</a></strong>.
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<img src="assets/images/top/authoring.jpg" alt="authoring.jpg">
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="content">
+							<strong>Authoring.</strong> Extracting data for augmented reality is hard. We address automated tutorial data creation from <strong><a href="projects/videoannotatedtutorials/index.html">assembly graph</a></strong>, <strong><a href="projects/arheroworkshop/index.html">tab for guitar playing</a></strong>, and <strong><a href="">3D scene video</a></strong>.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section" id="news">
+	<div class="container is-max-desktop">
+		<h1 class="title">Recent Research</h1>
+		<div class="content">
+			<ul>
+				<li>IEEE TVCG. <a href="">Good Keyframes To Inpaint</a></li>
+				<li>IEEE VR 2022. <a href="projects/neuralcameras/index.html" target="_blank">Video See-Through Mixed Reality with Focus Cues</a> (Best journal paper award)</li>
+				<li>IEEE ISMAR 2021. <a href="projects/gazecontingentvst/index.html" target="_blank">Neural Cameras: Learning Camera Characteristics for Coherent Mixed Reality Rendering</a> (Best conference paper award)</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section class="section" id="collaborations">
+	<div class="container is-max-desktop">
+		<h1 class="title">Collaborations</h1>
+		<div class="block">
+			We are a part of the Institute of Computer Graphics and Vision (ICG) at Graz University of Technology, Austria. We are also affiliated with Flinders University, Australia.
+		</div>
+		<div class="block">
+			We internationally collaborate with Stanford University, Salzburg University of Applied Sciences, Montanuniversität Leoben, and Keio University.
+		</div>
+	</div>
+</section>
 </body>
+
+<footer class="footer">
+<div class="content has-text-centered">
+<p>
+	<strong>Immersive Technology Lab</strong> All Rights Reserved. This website is based on Bulma by <a href="https://jgthms.com">Jeremy Thomas</a>.
+</p>
+</div>
+</footer>
 </html>
