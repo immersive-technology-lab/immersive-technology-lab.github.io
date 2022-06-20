@@ -47,10 +47,13 @@ var img = new Image();
 img.onload = imageLoaded;
 	
 
-
-
-function init_pano(canvasid, panoimg){
+function setImage(panoimg)
+{
 	img.src = panoimg;
+}
+
+function init_pano(canvasid){
+	
 	//get canvas and set up call backs
 	pano_canvas = document.getElementById(canvasid);
 	pano_canvas.onmousedown = mouseDown;
