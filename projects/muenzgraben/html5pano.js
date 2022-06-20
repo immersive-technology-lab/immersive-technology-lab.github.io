@@ -45,13 +45,14 @@ var 	cam_fov=90;
 var img_buffer=null;
 var img = new Image();
 img.onload = imageLoaded;
-img.src = 'pano.jpg';	
+	
 
 
 
-function init_pano(canvasid){
+function init_pano(canvasid, panoimg){
+	img.src = panoimg;
 	//get canvas and set up call backs
-	pano_canvas = document.getElementById('canvas');
+	pano_canvas = document.getElementById(canvasid);
 	pano_canvas.onmousedown = mouseDown;
 	window.onmousemove = mouseMove;
 	window.onmouseup = mouseUp;
