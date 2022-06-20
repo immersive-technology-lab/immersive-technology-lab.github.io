@@ -26,6 +26,35 @@ POSSIBILITY OF SUCH DAMAGE.
 const 	FPS = 30;
 const	DEG2RAD=Math.PI/180.0;
 
+let panos = ["R0012657.JPG",
+	"R0012658.JPG",
+	"R0012659.JPG",
+	"R0012660.JPG",
+	"R0012661.JPG",
+	"R0012662.JPG",
+	"R0012663.JPG",
+	"R0012664.JPG",
+	"R0012665.JPG",
+	"R0012666.JPG",
+	"R0012667.JPG",
+	"R0012668.JPG",
+	"R0012669.JPG",
+	"R0012670.JPG",
+	"R0012671.JPG",
+	"R0012672.JPG",
+	"R0012673.JPG",
+	"R0012674.JPG",
+	"R0012675.JPG",
+	"R0012676.JPG",
+	"R0012677.JPG",
+	"R0012678.JPG",
+	"R0012679.JPG",
+	"R0012680.JPG",
+	"R0012681.JPG",
+	"R0012682.JPG",
+	"R0012683.JPG",
+	"R0012688.JPG"];
+var pano_idx = 0;
 //Canvas to which to draw the panorama
 var		pano_canvas=null;
  
@@ -49,7 +78,16 @@ img.onload = imageLoaded;
 
 function setImage(panoimg)
 {
-	img.src = panoimg;
+	img.src = panos[panoimg];
+}
+
+function nextImage()
+{
+	pano_idx++;
+	if(pano_idx >= panos.length)
+	pano_idx = 0;
+	setImage(pano_idx);
+
 }
 
 function init_pano(canvasid){
