@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Multi-layer Scene Representation from Composed Focal Stacks</title>
+	
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+	<meta name="description" content="Multi-layer Scene Representation from Composed Focal Stacks is a TVCG Paper.">
+	<meta name="keywords" content="multi-layer scene representation, focal stack, view synthesis, AR-supported imaging, augmented reality, immersive technology lab, tugraz, tvcg">
+	<meta name="author" content="Immersive Technology Lab, TUGraz">
+
+	<!-- Bootstrap v5.1.3 CSS and JS (https://getbootstrap.com/) -->
+	<link href="../../common/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="../../common/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- custom fonts -->
+	<link rel="stylesheet" href="../../common/fonts/latofonts.css">
+	<link rel="stylesheet" href="css/fonts.css">
+</head>
+
+<body>
+<!-- Begin page content -->
+<main>
+	<section class="hero-banner bg-dark bg-opacity-10 pt-1 pb-4">
+	<div class="container text-center">
+		<!-- Title and a note -->
+		<h1 class="mt-4"><b>Multi-layer Scene Representation from Composed Focal Stacks</b></h1>
+		<h6 class="text-black-50">IEEE Transactions on Visualization and Computer Graphics (TVCG)</h6>
+		<h6 class="text-black-50">(Special Issue of TVCG for IEEE ISMAR 2023)</h6>
+
+		<!-- Author info. Tips: https://getbootstrap.com/docs/5.0/layout/grid/ -->
+		<div class="mt-4">
+			<div class="row">
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">Reina Ishikawa<sup>1</sup></a>, 
+					<a class="lead link-dark text-decoration-none">Hideo Saito<sup>1</sup></a>, 
+					<a class="lead link-dark text-decoration-none">Denis Kalkofen<sup>2,3</sup></a>, 
+					<a class="lead link-dark text-decoration-none" href="https://mugichoko445.bitbucket.io/" target="_blank">Shohei Mori<sup>2,1</sup></a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="mt-n1"><small><sup>1</sup>Keio University, <sup>2</sup>Graz University of Technology, <sup>3</sup>Flinders University</small></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+
+	<section class="hero-banner bg-white shadow-lg shadow pt-4 pb-4">
+	<div class="container text-center">
+
+		<div class="ratio ratio-16x9">
+			<iframe src="https://www.youtube.com/embed/6vB_AjgIKkI" title="Multi-layer Scene Representation from Composed Focal Stacks (YouTube)" allowfullscreen
+			></iframe>
+		</div>
+
+
+		<!-- Content icons -->
+		<!-- Bootstrap icons v.1.8.1 (https://icons.getbootstrap.com/) -->
+		<div class="mt-5">
+			<div class="row mb-3">
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="#">
+						<img src="../../common/icons-1.8.1/link-45deg.svg" alt="Link to IEEE Xplore" width="50" height="50" title="IEEE Xplore">
+						<figcaption class="figure-caption mt-1"><b>Xplore (TBA)</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="assets/ishikawa_tvcg23_paper.pdf" target="_blank">
+						<img src="../../common/icons-1.8.1/file-earmark-text.svg" alt="Link to Author Preprint" width="50" height="50" title="Author Preprint">
+						<figcaption class="figure-caption mt-1"><b>Preprint</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="https://youtu.be/6vB_AjgIKkI" target="_blank">
+						<img src="../../common/icons-1.8.1/file-earmark-play-fill.svg" alt="Link to Technical Video" width="50" height="50" title="Technical Video">
+						<figcaption class="figure-caption mt-1"><b>Video</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="#">
+						<img src="../../common/icons-1.8.1/mic.svg" alt="Link to ISMAR Talk" width="50" height="50" title="ISMAR Talk">
+						<figcaption class="figure-caption mt-1"><b>Talk (TBA)</b></figcaption>
+					</a></figure>
+				</div>
+			</div>
+		</div>
+		
+
+		<!-- Abstract -->
+		<p class="text-start">
+		Multi-layer images are a powerful scene representation for high-performance rendering in virtual/augmented reality (VR/AR). The major approach to generate such images is to use a deep neural network trained to encode colors and alpha values of depth certainty on each layer using registered multi-view images. A typical network is aimed at using a limited number of nearest views. Therefore, local noises in input images from a user-navigated camera deteriorate the final rendering quality and interfere with coherency over view transitions. We propose to use a focal stack composed of multi-view inputs to diminish such noises. We also provide theoretical analysis for ideal focal stacks to generate multi-layer images. Our results demonstrate the advantages of using focal stacks in coherent rendering, memory footprint, and AR-supported data capturing. We also show three applications of imaging for VR.
+		</p>
+		
+
+		<!-- Applications -->
+		<h3 class="mt-5 mb-3">Related Projects</h3>
+		<hr style="margin: 1em 25% 1em 25%;"> <!-- custom h line -->
+		<div class="container">
+			<div class="row mt-5">
+				<div class="col-lg-2 col-md-4">
+					<img src="../msiinpainting/assets/img/mori_tvcg23.jpg" class="img-fluid" style="width:100%;" alt="mori_tvcg23.jpg">
+				</div>
+				<div class="col-lg-10 col-md-8">
+					<p class="text-start">
+						<a class="text-decoration-none" href="../msiinpainting/index.html" target="_blank"><strong>Exemplar-Based Inpainting for 6DOF Virtual Reality Photos</strong></a>
+						<br>
+						We demonstrated how to implement exemplar-based inpainting on recent multi-layer scene representation. Multiple variants including different patch evaluation and imaging strategies were implemented and evaluated in user-involved studies to discuss superiority and future challenges. The left image shows snapshots from our VR system displaying the input multi-layer scene and the inpainted + edited scene in anaglyph colors for stereoscopic view.
+					</p>
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-lg-2 col-md-4">
+					<img src="../inpaintfusion/assets/img/mori_tvcg20.jpg" class="img-fluid" style="width:100%;" alt="mori_tvcg20.jpg">
+				</div>
+				<div class="col-lg-10 col-md-8">
+					<p class="text-start">
+						<a class="text-decoration-none" href="../inpaintfusion/index.html" target="_blank"><strong>InpaintFusion: Incremental RGB-D Inpainting for 3D Scenes</strong></a>
+						<br>
+						Inpainting meets dense SLAM to interactive AR after 3D inpainting. We perform RGB-D inpainting in a keyframe with a given user-specified 3D volume. The proposed system, <i>InpaintFusion</i>, automatically finds subsequent keyframes and performs RGB-D inpainting while keeping spatial coherence between multiple inpainted keyframes. All keyframes are fused as a dense map for a full 3D experience. 
+					</p>
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-lg-2 col-md-4">
+					<img src="../goodkfstoinpaint/assets/img/mori_tvcg22.jpg" class="img-fluid" style="width:100%;" alt="mori_tvcg22.jpg">
+				</div>
+				<div class="col-lg-10 col-md-8">
+					<p class="text-start">
+						<a class="text-decoration-none" href="../goodkfstoinpaint/index.html" target="_blank"><strong>Good Keyframes to Inpaint</strong></a>
+						<br>
+						Finding a good keyframe for InpaintFusion can be difficult for users. Our data-driven approach, Good Keyframes to Inpaint, can find the best one for you. We established six heuristic rules that need to be fulfilled and formulated them in implementable ways. Given an image dataset, we find the optimal balancing parameters for the formulations.
+					</p>
+				</div>
+			</div>
+		</div>
+		
+
+		<!-- Citation -->
+		<h3 class="mt-5 mb-3">Bibtex</h3>
+		<hr style="margin: 1em 25% 1em 25%;"> <!-- custom h line -->
+		<div class="col text-start bg-dark bg-opacity-10 rounded-3 px-3">
+		<pre><code id="bib">
+@article{Ishikawa2023FS2MPI,
+	author={Ishikawa, Reina and Saito, Hideo and Kalkofen, Denis and Mori, Shohei},
+	journal={IEEE Transactions on Visualization and Computer Graphics (TVCG)}, 
+	title={Multi-layer Scene Representation from Composed Focal Stacks}, 
+	volume={},
+	number={},
+	pages={},
+	year={2023},
+	doi={}
+}
+		</code></pre>
+		</div>
+
+		<!-- custom h line -->
+		<hr style="margin: 1em 25% 1em 25%;">
+
+
+		<!-- Contributions -->
+		<!--
+		<h3 class="my-5">Contributions</h3>
+		<p class="mb-5 text-start"><small>
+			state author contributions: aaa
+		</small></p>
+		-->
+
+		<script src="../common/copy-to-clipboard-js/CopyToClipboard.js"></script>
+		<script src="../common/copy-to-clipboard-js/Popover.js"></script>
+	</div>
+	</section>
+
+
+	<section class="hero-banner bg-dark bg-opacity-10 pt-1 pb-4">
+	<div class="container">
+		<div class="row mt-5">
+			<div class="col-12">
+				<a class="text-decoration-none" href="https://immersive-technology-lab.github.io/" target="_blank">Immersive Technology Lab (TUGraz)</a> and <a class="text-decoration-none" href="http://www.hvrl.ics.keio.ac.jp/" target="_blank">Hyper Vision Research Lab (Keio University)</a> made this project happen.
+			</div>
+		</div>
+	</div>
+	</section>
+
+</main>
+</body>
+</html>
