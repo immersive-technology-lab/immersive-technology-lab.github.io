@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>DeepDR: Deep Structure-Aware RGB-D Inpainting for Diminished Reality</title>
+	
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+	<meta name="description" content="DeepDR: Deep Structure-Aware RGB-D Inpainting for Diminished Reality.">
+	<meta name="keywords" content="diminished reality, inpainting, deep learning, RGB-D, augmented reality, immersive technology lab, tugraz">
+	<meta name="author" content="Immersive Technology Lab, TUGraz">
+
+	<!-- Bootstrap v5.1.3 CSS and JS (https://getbootstrap.com/) -->
+	<link href="../../common/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="../../common/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- custom fonts -->
+	<link rel="stylesheet" href="../../common/fonts/latofonts.css">
+	<link rel="stylesheet" href="css/fonts.css">
+	<link rel="stylesheet" href="../../common/fontawesome-free-6.1.1-web/css/all.css">
+
+	<!-- definitive-image-comparison-slider by Abel Cabeza Román (https://github.com/abelcabezaroman/definitive-image-comparison-slider) -->
+	<link rel="stylesheet" href="../../common/definitive-image-comparison-slider/dics.css">
+	<script src="../../common/definitive-image-comparison-slider/dics.js"></script>
+	<script src="assets/js/BeforeAfter.js"></script> <!-- Change this to modify the effect -->
+
+</head>
+
+<body>
+<!-- Begin page content -->
+<main>
+	<section class="hero-banner bg-dark bg-opacity-10 pt-1 pb-4">
+	<div class="container text-center">
+		<!-- Title and a note -->
+		<h1 class="mt-4"><b>DeepDR: Deep Structure-Aware RGB-D Inpainting for Diminished Reality</b></h1>
+		<h6 class="text-black-50">International Conference on 3D Vision (accepted)</h6>
+
+		<!-- Author info. Tips: https://getbootstrap.com/docs/5.0/layout/grid/ -->
+		<div class="mt-4">
+			<div class="row">
+				<div class="col">
+					<a class="lead link-dark text-decoration-none" href="https://cgsaxner.github.io/" target="_blank">Christina Gsaxner<sup>1</sup></a>, 
+					<a class="lead link-dark text-decoration-none" href="https://mugichoko445.github.io/" target="_blank">Shohei Mori<sup>1</sup></a>, 
+					<a class="lead link-dark text-decoration-none">Dieter Schmalstieg<sup>1,2</sup></a>, 
+					<a class="lead link-dark text-decoration-none">Jan Egger<sup>1,3</sup></a>, <br>
+                    <a class="lead link-dark text-decoration-none">Gerhard Paar<sup>4</sup></a>, 
+                    <a class="lead link-dark text-decoration-none">Werner Bailer<sup>4</sup></a> and
+                    <a class="lead link-dark text-decoration-none">Denis Kalkofen<sup>1,5</sup></a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="mt-n1"><small>
+                        <sup>1</sup>Graz University of Technology, 
+                        <sup>2</sup>University of Stuttgart, 
+                        <sup>3</sup>University of Duisburg-Essen,
+                        <br>
+                        <sup>4</sup>Joanneum Research,
+                        <sup>5</sup>Flinders University
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+
+	<section class="hero-banner bg-white shadow-lg shadow pt-4 pb-4">
+	<div class="container text-center">
+        <!-- Teaser image -->
+		<div class="mb-2">
+			<div class="row">
+			<img src="assets/img/teaser.jpg" class="img-fluid" alt="Teaser image">
+			</div>
+		</div>
+
+		<!-- Content icons -->
+		<!-- Bootstrap icons v.1.8.1 (https://icons.getbootstrap.com/) -->
+		<div class="mt-5">
+			<div class="row mb-3">
+				<!-- <div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="https://doi.org/10.1109/TVCG.2023.3320248" target="_blank">
+						<img src="../../common/icons-1.8.1/link-45deg.svg" alt="Link to IEEE Xplore" width="50" height="50" title="IEEE Xplore">
+						<figcaption class="figure-caption mt-1"><b>Xplore</b></figcaption>
+					</a></figure>
+				</div> -->
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="assets/ishikawa_tvcg23_paper.pdf" target="_blank">
+						<img src="../../common/icons-1.8.1/file-earmark-text.svg" alt="Link to arXiv Preprint" width="50" height="50" title="arXiv Preprint">
+						<figcaption class="figure-caption mt-1"><b>Preprint</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="https://youtu.be/ahBl6M5kfLs" target="_blank">
+						<img src="../../common/icons-1.8.1/file-earmark-play-fill.svg" alt="Link to Technical Video" width="50" height="50" title="Technical Video">
+						<figcaption class="figure-caption mt-1"><b>Video</b></figcaption>
+					</a></figure>
+				</div>
+				<!-- <div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="#">
+						<img src="../../common/icons-1.8.1/mic.svg" alt="Link to ISMAR Talk" width="50" height="50" title="ISMAR Talk">
+						<figcaption class="figure-caption mt-1"><b>Talk (TBA)</b></figcaption>
+					</a></figure>
+				</div> -->
+			</div>
+		</div>
+		
+
+		<!-- Abstract -->
+		<p class="text-start">
+            Diminished reality (DR) refers to the removal of real objects from the environment by virtually replacing them with their background. Modern DR frameworks use inpainting to hallucinate unobserved regions. While recent deep learning-based inpainting is promising, the DR use case is complicated by the need to generate coherent structure and 3D geometry (i.e., depth), in particular for advanced applications, such as 3D scene editing. In this paper, we propose DeepDR, a first RGB-D inpainting framework fulfilling all requirements of DR: Plausible image and geometry inpainting with coherent structure, running at real-time frame rates, with minimal temporal artifacts. Our structure-aware generative network allows us to explicitly condition color and depth outputs on the scene semantics, overcoming the difficulty of reconstructing sharp and consistent boundaries in regions with complex backgrounds. Experimental results show that the proposed framework can outperform related work qualitatively and quantitatively.
+		</p>
+		
+
+        <h3 class="mt-5 mb-3">Video</h3>
+		<hr style="margin: 1em 25% 1em 25%;">
+        <div class="ratio ratio-16x9">
+			<iframe src="https://www.youtube.com/embed/ahBl6M5kfLs?si=QPpejbYwF_YLXMw2" title="Multi-layer Scene Representation from Composed Focal Stacks (YouTube)" allowfullscreen
+			></iframe>
+		</div>
+
+		<!-- Results -->
+		<h3 class="my-5">Results</h3>
+
+        <h5 class="mt-5 mb-3"><a href="https://interiornet.org/">InteriorNet</a> (synthetic data)</h5>
+		<div class="row">
+			<div class="col-md-6 mb-1">
+				<div class="b-dics">
+					<img class="img-fluid" src="assets/img/interiornet_in.jpg" alt="Original">
+					<img class="img-fluid" src="assets/img/interiornet_out.jpg" alt="Inpainted">
+				</div>
+			</div>
+			<div class="col-md-6 mb-3">
+				<div class="b-dics">
+					<img class="img-fluid" src="assets/img/interiornet_in_depth.jpg" alt="Original">
+					<img class="img-fluid" src="assets/img/interiornet_out_depth.jpg" alt="Inpainted">
+				</div>
+			</div>
+		</div>
+
+        <h5 class="mt-5 mb-3"><a href="https://github.com/robot-learning-freiburg/DynaFill">DynaFill</a> (synthetic data)</h5>
+		<div class="row">
+			<div class="col-md-6 mb-1">
+				<div class="b-dics">
+					<img class="img-fluid" src="assets/img/dynafill_in.jpg" alt="Original">
+					<img class="img-fluid" src="assets/img/dynafill_out.jpg" alt="Inpainted">
+				</div>
+			</div>
+			<div class="col-md-6 mb-3">
+				<div class="b-dics">
+					<img class="img-fluid" src="assets/img/dynafill_in_depth.jpg" alt="Original">
+					<img class="img-fluid" src="assets/img/dynafill_out_depth.jpg" alt="Inpainted">
+				</div>
+			</div>
+		</div>
+
+        <h5 class="mt-5 mb-3"><a href="http://www.scan-net.org/">ScanNet</a> (real data)</h5>
+		<div class="row">
+			<div class="col-md-6 mb-1">
+				<div class="b-dics">
+					<img class="img-fluid" src="assets/img/scannet_in.jpg" alt="Original">
+					<img class="img-fluid" src="assets/img/scannet_out.jpg" alt="Inpainted">
+				</div>
+			</div>
+			<div class="col-md-6 mb-3">
+				<div class="b-dics">
+					<img class="img-fluid" src="assets/img/scannet_in_depth.jpg" alt="Original">
+					<img class="img-fluid" src="assets/img/scannet_out_depth.jpg" alt="Inpainted">
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- custom h line -->
+		<hr style="margin: 0 25% 1em 25%;">
+		
+
+		<!-- Citation -->
+		<h3 class="mt-5 mb-3">Bibtex</h3>
+		<hr style="margin: 1em 25% 1em 25%;"> <!-- custom h line -->
+		<div class="col text-start bg-dark bg-opacity-10 rounded-3 px-3">
+		<pre><code id="bib">
+@article{gsaxner2023deepdr,
+    title={DeepDR: Deep Structure-Aware RGB-D Inpainting for Diminished Reality},
+    author={Gsaxner, Christina and Mori, Shohei and Schmalstieg, Dieter and Egger, Jan and Paar, Gerhard and Bailer, Werner and Kalkofen, Denis},
+    journal={arXiv preprint arXiv:2312.00532},
+    year={2023}
+}
+		</code></pre>
+		</div>
+
+		<!-- custom h line -->
+		<hr style="margin: 1em 25% 1em 25%;">
+
+
+		<!-- Contributions -->
+		<!--
+		<h3 class="my-5">Contributions</h3>
+		<p class="mb-5 text-start"><small>
+			state author contributions: aaa
+		</small></p>
+		-->
+
+		<script src="../common/copy-to-clipboard-js/CopyToClipboard.js"></script>
+		<script src="../common/copy-to-clipboard-js/Popover.js"></script>
+	</div>
+	</section>
+
+
+	<section class="hero-banner bg-dark bg-opacity-10 pt-1 pb-4">
+	<div class="container">
+		<div class="row mt-5">
+			<div class="col">
+				<a class="text-decoration-none" href="https://immersive-technology-lab.github.io/" target="_blank">Immersive Technology Lab (TUGraz)</a> and <a class="text-decoration-none" href="http://www.hvrl.ics.keio.ac.jp/" target="_blank">Hyper Vision Research Lab (Keio University)</a> made this project happen.
+			</div>
+		</div>
+	</div>
+	</section>
+
+</main>
+</body>
+</html>
