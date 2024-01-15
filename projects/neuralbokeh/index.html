@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Neural Bokeh: Learning Lens Blur for Out-of-Focus Mixed Reality</title>
+	
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+	<meta name="description" content="Neural Bokeh: Learning Lens Blur for Out-of-Focus Mixed Reality is an VR Conference Paper.">
+	<meta name="keywords" content="immersive technology lab, tugraz, ISMAR">
+	<meta name="author" content="Immersive Technology Lab, TUGraz">
+
+	<!-- Bootstrap v5.1.3 CSS and JS (https://getbootstrap.com/) -->
+	<link href="../../common/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="../../common/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- custom fonts -->
+	<link rel="stylesheet" href="../../common/fonts/latofonts.css">
+	<link rel="stylesheet" href="css/fonts.css">
+</head>
+
+<body>
+<!-- Begin page content -->
+<main>
+	<section class="hero-banner bg-dark bg-opacity-10 pt-1 pb-4">
+	<div class="container text-center">
+		<!-- Title and a note -->
+		<h1 class="mt-4">Neural Bokeh: Learning Lens Blur for Out-of-Focus Mixed Reality</h1>
+		<h5 class="text-black-50"><i>Conference paper at IEEE VR 2024</i></h5>
+
+		<!-- Author info. Tips: https://getbootstrap.com/docs/5.0/layout/grid/ -->
+		<div class="mt-4">
+			<div class="row">
+				<div class="col">
+					<a class="lead link-dark text-decoration-none">David Mandl<sup>1</sup></a>,
+					<a class="lead link-dark text-decoration-none">Shohei Mori<sup>1</sup></a>,
+					<a class="lead link-dark text-decoration-none">Peter Mohr<sup>1</sup></a>,
+					<a class="lead link-dark text-decoration-none">Yifan Peng<sup>2</sup></a>,</br>
+					<a class="lead link-dark text-decoration-none">Tobias Langlotz<sup>3</sup></a>,
+					<a class="lead link-dark text-decoration-none">Dieter Schmalstieg<sup>4,1</sup></a>,
+					<a class="lead link-dark text-decoration-none">Denis Kalkofen<sup>5,1</sup></a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="mt-n1"><small><sup>1</sup>Graz University of Technology, <sup>2</sup>The University of Hong Kong, <sup>3</sup>University of Otago, <sup>4</sup>University of Stuttgart, <sup>5</sup>Flinders University</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+
+	<section class="hero-banner bg-white shadow-lg shadow pt-4 pb-4">
+	<div class="container text-center">
+		<!-- Teaser image -->
+		<div class="mb-2">
+			<div class="row">
+			<img src="assets/img/teaser.jpg" class="img-fluid" alt="Teaser image">
+			</div>
+		</div>
+
+
+		<!-- Content icons -->
+		<!-- Bootstrap icons v.1.8.1 (https://icons.getbootstrap.com/) -->
+		<div class="mt-5">
+			<div class="row mb-3">
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="" target="_blank">
+						<img src="../../common/icons-1.8.1/link-45deg.svg" alt="Link to IEEE Xplore" width="70" height="70" title="IEEE Xplore">
+						<figcaption class="figure-caption mt-1"><b>Xplore</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="" target="_blank">
+						<img src="../../common/icons-1.8.1/file-earmark-text.svg" alt="Link to Paper" width="80" height="80" title="Paper">
+						<figcaption class="figure-caption mt-1"><b>Preprint</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="" target="_blank">
+						<img src="../../common/icons-1.8.1/folder2.svg" alt="Link to Paper" width="80" height="80" title="Data">
+						<figcaption class="figure-caption mt-1"><b>Data&nbsp;(TBA)</b></figcaption>
+					</a></figure>
+				</div>
+				<div class="col">
+					<figure class="figure"><a class="text-decoration-none" href="" target="_blank">
+						<img src="../../common/icons-1.8.1/file-earmark-play-fill.svg" alt="Link to Technical Video" width="70" height="70" title="Video">
+						<figcaption class="figure-caption mt-1"><b>Video</b></figcaption>
+					</a></figure>
+				</div>
+			</div>
+		</div>
+		
+
+		<!-- custom h line -->
+		<hr style="margin: 0 25% 1rem 25%;">
+		
+
+		<!-- Abstract -->
+		<h3 class="my-5">Abstract</h3>
+		<p class="mb-5 text-start">
+		We present Neural Bokeh, a deep learning approach for synthesizing convincing out-of-focus effects with applications in Mixed Reality (MR) image and video compositing. Unlike existing approaches that solely learn the amount of blur for out-of-focus areas, our approach captures the overall characteristic of the bokeh to enable the seamless integration of rendered scene content into real image, ensuring a consistent lens blur over the resulting MR composition. Our method learns spatially varying blur shapes, i.e., bokeh, from a dataset of real images acquired using the physical camera that is used to capture the photograph or video of the MR composition. Accordingly, those learned blur shapes mimic the characteristics of the physical lens. As the run-time and the resulting quality of Neural Bokeh increase with the resolution of input images, we employ low-resolution images for the MR view finding at runtime and high-resolution renderings for compositing with high-resolution photographs or videos in an offline process. We envision a variety of applications, including visual enhancement of image and video compositing containing creative utilization of out-of-focus effects.
+		</p>
+	
+
+		<!-- custom h line -->
+		<!-- <hr style="margin: 0 25% 1em 25%;"> -->
+		
+
+		<!-- Results -->
+		<!-- <h3 class="my-5">Results</h3> -->
+
+		<!-- custom h line -->
+		<hr style="margin: 1em 25% 1em 25%;">
+		
+
+		<!-- Citation -->
+		<h3 class="my-5">Citation 
+			<button type="button" class="btn btn-outline-secondary btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Copied!" onclick="CopyToClipboard('bib')">
+			Copy
+			</button>
+		</h3>
+		<div class="col text-start bg-dark bg-opacity-10 rounded-3 px-3">
+		<pre><code id="bib">
+		</code></pre>
+		</div>
+
+		<script src="../common/copy-to-clipboard-js/CopyToClipboard.js"></script>
+		<script src="../common/copy-to-clipboard-js/Popover.js"></script>
+	</div>
+	</section>
+
+
+	<section class="hero-banner bg-dark bg-opacity-10 pt-1 pb-4">
+	<div class="container">
+		<div class="row mt-5">
+			<div class="col-5">
+				<h3>Links</h3>
+				<ul>
+					<li><a class="link-dark text-decoration-none" href="https://immersive-technology-lab.github.io/" target="_blank">Immersive Technology Lab (TUGraz)</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	</section>
+
+</main>
+</body>
+</html>
