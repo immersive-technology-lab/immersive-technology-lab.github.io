@@ -114,7 +114,7 @@
 
 		<!-- Results -->
 		<h3 class="my-5">Example Results</h3>
-		
+
 		<script>
 		function OnChangeCamera(selectedObject)
 		{
@@ -122,21 +122,16 @@
 			var id = selectedObject.id;
 			//const imageIDs = ["18", "84", "152", "161", "218", "283", "511", "873", "1335", "1429"];
 			
-			//for (let i = 0; i < imageIDs.length; i++) 
-			{
-				var prefix = "ebb";
-				var imgID = prefix + id;
-				var blurImg = document.getElementById(imgID);
-				var srcPrefix = "assets/img/ebb/";
-				var newSrc = srcPrefix + cam + "/" + id + ".jpg";
-				console.log(newSrc);
-				blurImg.setAttribute('src', newSrc);
-			}
+			var prefix = "ebb";
+			var imgID = prefix + id;
+			var blurImg = document.getElementById(imgID);
+			var srcPrefix = "assets/img/ebb/";
+			var newSrc = srcPrefix + cam + "/" + id + ".jpg";
+			//console.log(newSrc);
+			blurImg.setAttribute('src', newSrc);
 		}
 		</script>
-		
-
-		
+				
 		<div class="row my">
 			<div class="col-lg-6 mb-1">
 				<p class="mb-1 text-start">Select camera
@@ -259,6 +254,66 @@
 				</div>
 			</div>
 		</div>
+		
+		<p class="mt-2 text-start">
+		These examples show the output of our system when applied to all-in-focus images. The depth here is computed using <a href="https://github.com/isl-org/DPT">DPT</a>. Use the box to select which camera model should be applied.
+		</p>
+		
+		<!-- custom h line -->
+		<hr style="margin: 0 25% 1em 25%;">
+		
+				<!-- Results -->
+		<h3 class="my-5">Refocusing</h3>
+				
+		<script>
+		function OnFocusChange(selectedObject)
+		{
+			var focus = selectedObject.value;
+			if(focus.length == 1)
+				focus = "0" + focus;
+			var cam = document.getElementById("focuscamera").value;
+			var img = document.getElementById("refocusing");
+			var srcPrefix = "assets/img/refocusing/";
+			var newSrc = srcPrefix + cam + "/" + focus + ".jpg";
+			img.setAttribute('src', newSrc);
+		}
+		function OnCameraChange(selectedObject)
+		{
+			var cam = selectedObject.value;
+			var focus = document.getElementById("focusslider").value;
+			if(focus.length == 1)
+				focus = "0" + focus;
+			var img = document.getElementById("refocusing");
+			var srcPrefix = "assets/img/refocusing/";
+			var newSrc = srcPrefix + cam + "/" + focus + ".jpg";
+			img.setAttribute('src', newSrc);
+		}
+		</script>
+		
+		<div class="row my">
+			<div class="col mb-1">
+				<div class="b-dics">
+					<img src="assets/img/refocusing/D3300/01.jpg" id="refocusing">
+				</div>
+			</div>
+		</div>
+		
+		<div class="refocusing">
+			<p class="mb-1 text-start">Select camera
+			<select name="cameras", id="focuscamera" onchange="OnCameraChange(this)">
+				<option value="D3300">Nikon D3300</option>
+				<option value="Z6">Nikon Z6</option>
+			</select>
+			</p>
+			<p class="mb-1 text-start">Focus distance
+			<input type="range" min="1" max="30" value="1" class="slider" id="focusslider", oninput="OnFocusChange(this)">
+			</p>
+		</div>
+		
+		<p class="mt-2 text-start">
+		This examples shows a focus sweep applied to an all-in-focus image. The depth of field is computed using the selected camera model.
+		</p>
+
 		
 		<!-- custom h line -->
 		<hr style="margin: 0 25% 1em 25%;">
