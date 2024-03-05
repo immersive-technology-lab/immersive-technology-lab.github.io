@@ -48,7 +48,7 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					<div class="mt-n1"><small><sup>1</sup>Graz University of Technology, <sup>2</sup>The University of Hong Kong, <sup>3</sup>University of Otago, <sup>4</sup>University of Stuttgart, <sup>5</sup>Flinders University</div></small>
+					<div class="mt-n1"><sup>1</sup>Graz University of Technology, <sup>2</sup>The University of Hong Kong, <sup>3</sup>University of Otago, <sup>4</sup>University of Stuttgart, <sup>5</sup>Flinders University</div>
 				</div>
 			</div>
 		</div>
@@ -104,7 +104,7 @@
 		<!-- Abstract -->
 		<h3 class="my-5">Abstract</h3>
 		<p class="mb-5 text-start">
-		We present Neural Bokeh, a deep learning approach for synthesizing convincing out-of-focus effects with applications in Mixed Reality (MR) image and video compositing. Unlike existing approaches that solely learn the amount of blur for out-of-focus areas, our approach captures the overall characteristic of the bokeh to enable the seamless integration of rendered scene content into real image, ensuring a consistent lens blur over the resulting MR composition. Our method learns spatially varying blur shapes, i.e., bokeh, from a dataset of real images acquired using the physical camera that is used to capture the photograph or video of the MR composition. Accordingly, those learned blur shapes mimic the characteristics of the physical lens. As the run-time and the resulting quality of Neural Bokeh increase with the resolution of input images, we employ low-resolution images for the MR view finding at runtime and high-resolution renderings for compositing with high-resolution photographs or videos in an offline process. We envision a variety of applications, including visual enhancement of image and video compositing containing creative utilization of out-of-focus effects.
+		We present Neural Bokeh, a deep learning approach for synthesizing convincing out-of-focus effects with applications in Mixed Reality (MR) image and video compositing. Unlike existing approaches that solely learn the amount of blur for out-of-focus areas, our approach captures the overall characteristic of the bokeh to enable the seamless integration of rendered scene content into real image, ensuring a consistent lens blur over the resulting MR composition. Our method learns spatially varying blur shapes, from a dataset of real images acquired using the physical camera that is used to capture the photograph or video of the MR composition. Accordingly, those learned blur shapes mimic the characteristics of the physical lens. As the run-time and the resulting quality of Neural Bokeh increase with the resolution of input images, we employ low-resolution images for the MR view finding at runtime and high-resolution renderings for compositing with high-resolution photographs or videos in an offline process. We envision a variety of applications, including visual enhancement of image and video compositing containing creative utilization of out-of-focus effects.
 		</p>
 	
 
@@ -156,10 +156,41 @@
 				</div>
 			</div>
 		</div>
+		
+		<!-- custom h line -->
+		<hr style="margin: 0 25% 1em 25%;">
 
+		<!-- Applications -->
+		<h3 class="mt-5 mb-3">Related Projects</h3>
+		<div class="container">
+			<div class="row mt-5">
+				<div class="col-lg-2 col-md-4">
+					<img src="../../assets/images/selected/ebner_vr23.jpg" class="img-fluid" style="width:100%;" alt="ebner_vr23.jpg">
+				</div>
+				<div class="col-lg-10 col-md-8">
+					<p class="text-start">
+						<a class="text-decoration-none" href="../fs2mpi/index.html" target="_blank"><strong>Off-Axis Layered Displays: Hybrid Direct-View/Near-Eye Mixed Reality with Focus Cues</strong></a>
+						<br>
+						This work introduces off-axis layered displays, the first approach to stereoscopic direct-view displays with support for focus cues. Off-axis layered displays combine a head-mounted display with a traditional direct-view display for encoding a focal stack and thus, for providing focus cues. 
+					</p>
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-lg-2 col-md-4">
+					<img src="../../assets/images/selected/ebner_vr22.jpg" class="img-fluid" style="width:100%;" alt="ebner_vr22.jpg">
+				</div>
+				<div class="col-lg-10 col-md-8">
+					<p class="text-start">
+						<a class="text-decoration-none" href="../gazecontingentvst/index.html" target="_blank"><strong>Video See-Through Mixed Reality with Focus Cues</strong></a>
+						<br>
+						This work introduces the first approach to video see-through mixed reality with full support for focus cues. By combining the flexibility to adjust the focal distance found in varifocal designs with the robustness to eye-tracking error found in multifocal designs, our novel display architecture reliably delivers focus cues over a large workspace. 
+					</p>
+				</div>
+			</div>
+		</div>
+		
 		<!-- custom h line -->
 		<hr style="margin: 1em 25% 1em 25%;">
-		
 
 		<!-- Citation -->
 		<h3 class="my-5">Citation 
@@ -169,6 +200,12 @@
 		</h3>
 		<div class="col text-start bg-dark bg-opacity-10 rounded-3 px-3">
 		<pre><code id="bib">
+@inproceedings{Mandl2024NeuralBokeh, 
+	author={Mandl, David and Mori, Shohei and Mohr, Peter and Peng, Yifan and Langlotz, Tobias and Schmalstieg, Dieter and Kalkofen, Denis},
+	booktitle={2024 IEEE Conference on Virtual Reality and 3D User Interfaces (VR)}, 
+	title={Neural Bokeh: Learning Lens Blur for Computational Videography and Out-of-Focus Mixed Reality}, 
+	year={2024},
+}
 		</code></pre>
 		</div>
 
