@@ -119,84 +119,140 @@
 		function OnChangeCamera(selectedObject)
 		{
 			var cam = selectedObject.value;
-			const imageIDs = ["18", "84", "152", "161", "218", "283", "511", "873", "1335", "1429"];
+			var id = selectedObject.id;
+			//const imageIDs = ["18", "84", "152", "161", "218", "283", "511", "873", "1335", "1429"];
 			
-			for (let i = 0; i < imageIDs.length; i++) 
+			//for (let i = 0; i < imageIDs.length; i++) 
 			{
 				var prefix = "ebb";
-				var id = prefix.concat(imageIDs[i]);
-				var blurImg = document.getElementById(id);
+				var imgID = prefix + id;
+				var blurImg = document.getElementById(imgID);
 				var srcPrefix = "assets/img/ebb/";
-				var newSrc = srcPrefix + cam + "/" + imageIDs[i] + ".jpg";
+				var newSrc = srcPrefix + cam + "/" + id + ".jpg";
 				console.log(newSrc);
 				blurImg.setAttribute('src', newSrc);
 			}
 		}
 		</script>
 		
-		<p class="mb-1 text-start">Select camera
-		<select name="cameras" id="cameras", onchange="OnChangeCamera(this)">
-			<option value="D3300">Nikon D3300</option>
-			<option value="Z6">Nikon Z6</option>
-		</select>
-		</p>
+
 		
 		<div class="row my">
 			<div class="col-lg-6 mb-1">
+				<p class="mb-1 text-start">Select camera
+				<select name="cameras" id="18", onchange="OnChangeCamera(this)">
+					<option value="D3300">Nikon D3300</option>
+					<option value="Z6">Nikon Z6</option>
+				</select>
+				</p>
 				<div class="b-dics">
 					<img class="img-fluid" src="assets/img/ebb/sharp/18.jpg">
 					<img class="img-fluid" src="assets/img/ebb/D3300/18.jpg" id="ebb18">
 				</div>
 			</div>
 			<div class="col-lg-6 mb-3">
+				<p class="mb-1 text-start">Select camera
+				<select name="cameras" id="84", onchange="OnChangeCamera(this)">
+					<option value="D3300">Nikon D3300</option>
+					<option value="Z6">Nikon Z6</option>
+				</select>
+				</p>
 				<div class="b-dics">
 					<img class="img-fluid" src="assets/img/ebb/sharp/84.jpg">
 					<img class="img-fluid" src="assets/img/ebb/D3300/84.jpg" id="ebb84">
 				</div>
 			</div>
 			<div class="col-lg-6 mb-1">
+				<p class="mb-1 text-start">Select camera
+				<select name="cameras" id="152", onchange="OnChangeCamera(this)">
+					<option value="D3300">Nikon D3300</option>
+					<option value="Z6">Nikon Z6</option>
+				</select>
+				</p>
 				<div class="b-dics">
 					<img class="img-fluid" src="assets/img/ebb/sharp/152.jpg">
 					<img class="img-fluid" src="assets/img/ebb/D3300/152.jpg" id="ebb152">
 				</div>
 			</div>
 			<div class="col-lg-6 mb-3">
+				<p class="mb-1 text-start">Select camera
+				<select name="cameras" id="161", onchange="OnChangeCamera(this)">
+					<option value="D3300">Nikon D3300</option>
+					<option value="Z6">Nikon Z6</option>
+				</select>
+				</p>
 				<div class="b-dics">
 					<img class="img-fluid" src="assets/img/ebb/sharp/161.jpg">
 					<img class="img-fluid" src="assets/img/ebb/D3300/161.jpg" id="ebb161">
 				</div>
 			</div>
 			<div class="col-lg-6 mb-1">
+				<p class="mb-1 text-start">Select camera
+				<select name="cameras" id="218", onchange="OnChangeCamera(this)">
+					<option value="D3300">Nikon D3300</option>
+					<option value="Z6">Nikon Z6</option>
+				</select>
+				</p>
 				<div class="b-dics">
 					<img class="img-fluid" src="assets/img/ebb/sharp/218.jpg">
 					<img class="img-fluid" src="assets/img/ebb/D3300/218.jpg" id="ebb218">
 				</div>
 			</div>
 			<div class="col-lg-6 mb-3">
+				<p class="mb-1 text-start">Select camera
+				<select name="cameras" id="283", onchange="OnChangeCamera(this)">
+					<option value="D3300">Nikon D3300</option>
+					<option value="Z6">Nikon Z6</option>
+				</select>
+				</p>
 				<div class="b-dics">
 					<img class="img-fluid" src="assets/img/ebb/sharp/283.jpg">
 					<img class="img-fluid" src="assets/img/ebb/D3300/283.jpg" id="ebb283">
 				</div>
 			</div>
 			<div class="col-lg-6 mb-1">
+				<p class="mb-1 text-start">Select camera
+				<select name="cameras" id="511", onchange="OnChangeCamera(this)">
+					<option value="D3300">Nikon D3300</option>
+					<option value="Z6">Nikon Z6</option>
+				</select>
+				</p>
 				<div class="b-dics">
 					<img class="img-fluid" src="assets/img/ebb/sharp/511.jpg">
 					<img class="img-fluid" src="assets/img/ebb/D3300/511.jpg" id="ebb511">
 				</div>
 			</div>
 			<div class="col-lg-6 mb-3">
+				<p class="mb-1 text-start">Select camera
+				<select name="cameras" id="873", onchange="OnChangeCamera(this)">
+					<option value="D3300">Nikon D3300</option>
+					<option value="Z6">Nikon Z6</option>
+				</select>
+				</p>
 				<div class="b-dics">
 					<img class="img-fluid" src="assets/img/ebb/sharp/873.jpg">
 					<img class="img-fluid" src="assets/img/ebb/D3300/873.jpg" id="ebb873">
 				</div>
 			</div>
 			<div class="col-lg-6 mb-1">
+				<p class="mb-1 text-start">Select camera
+				<select name="cameras" id="1335", onchange="OnChangeCamera(this)">
+					<option value="D3300">Nikon D3300</option>
+					<option value="Z6">Nikon Z6</option>
+				</select>
+				</p>
 				<div class="b-dics">
 					<img class="img-fluid" src="assets/img/ebb/sharp/1335.jpg">
 					<img class="img-fluid" src="assets/img/ebb/D3300/1335.jpg" id="ebb1335">
 				</div>
 			</div>
 			<div class="col-lg-6 mb-3">
+				<p class="mb-1 text-start">Select camera
+				<select name="cameras" id="1429", onchange="OnChangeCamera(this)">
+					<option value="D3300">Nikon D3300</option>
+					<option value="Z6">Nikon Z6</option>
+				</select>
+				</p>
 				<div class="b-dics">
 					<img class="img-fluid" src="assets/img/ebb/sharp/1429.jpg">
 					<img class="img-fluid" src="assets/img/ebb/D3300/1429.jpg" id="ebb1429">
