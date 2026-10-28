@@ -17,6 +17,31 @@
 	<!-- custom fonts -->
 	<link rel="stylesheet" href="../../common/fonts/latofonts.css">
 	<link rel="stylesheet" href="css/fonts.css">
+	<style>
+		.lens-demo {
+			border-radius: 1rem;
+			overflow: hidden;
+		}
+
+		.lens-stage {
+			position: relative;
+			min-height: 420px;
+		}
+
+		#lens_canvas {
+			display: block;
+			width: 100%;
+			height: auto;
+			object-fit: contain;
+			cursor: grab;
+			touch-action: none;
+		}
+
+		#lens_canvas:active {
+			cursor: grabbing;
+		}
+
+	</style>
 </head>
 
 <body>
@@ -126,6 +151,22 @@
 
 		<!-- custom h line -->
 		<hr style="margin: 0 25% 1em 25%;">
+
+		
+
+		<section aria-labelledby="browser-demo-heading">
+		<h3 id="browser-demo-heading" class="my-5">Browser demo</h3>
+		<!-- Interactive 3D browser demo -->
+		<div class="lens-demo mb-5">
+			<div class="lens-stage">
+				<canvas id="lens_canvas" width="960" height="460" aria-label="Rotatable 3D assembly with a movable magnification lens"></canvas>
+			</div>
+		</div>
+		</section>
+		
+
+		<!-- custom h line -->
+		<hr style="margin: 0 25% 1em 25%;">
 		
 
 		<!-- Citation -->
@@ -166,5 +207,185 @@
 	</section>
 
 </main>
+<script>
+	(function () {
+		const canvas = document.getElementById("lens_canvas");
+		const context = canvas.getContext("2d");
+		const highlight = [0.34, 0.96, 0.35];
+		const lens = { x: canvas.width * 0.76, y: canvas.height * 0.27, size: 200 };
+		const magnification = 4;
+		let interaction = null;
+		let yaw = -0.55;
+		let pitch = -0.55;
+
+		const parts = [
+			{ type: "cube", center: [0, -0.08, 0], size: [3.2, 0.18, 2.3], color: "#36464d" },
+			{ type: "cube", center: [0, 0.12, 0], size: [2.7, 0.42, 1.8], color: "#65747a" },
+			{ type: "cube", center: [-0.9, 0.48, -0.35], size: [0.58, 0.58, 0.62], color: "#9aa7a9" },
+			{ type: "cube", center: [-0.28, 0.48, -0.35], size: [0.58, 0.58, 0.62], color: "#9aa7a9" },
+			{ type: "cube", center: [0.34, 0.48, -0.35], size: [0.58, 0.58, 0.62], color: "#9aa7a9" },
+			{ type: "cube", center: [0.96, 0.48, -0.35], size: [0.58, 0.58, 0.62], color: "#9aa7a9" },
+			{ type: "cube", center: [-0.9, 0.48, 0.35], size: [0.58, 0.58, 0.62], color: "#879598" },
+			{ type: "cube", center: [-0.28, 0.48, 0.35], size: [0.58, 0.58, 0.62], color: "#879598" },
+			{ type: "cube", center: [0.34, 0.48, 0.35], size: [0.58, 0.58, 0.62], color: "#879598" },
+			{ type: "cube", center: [0.96, 0.48, 0.35], size: [0.58, 0.58, 0.62], color: "#879598" },
+			{ type: "cube", center: [0.34, 0.96, 0.35], size: [0.32, 0.36, 0.36], color: "#3aff3d" }
+		];
+
+		function rotate(point) {
+			const cy = Math.cos(yaw);
+			const sy = Math.sin(yaw);
+			const cp = Math.cos(pitch);
+			const sp = Math.sin(pitch);
+			const x = point[0] * cy - point[2] * sy;
+			const z = point[0] * sy + point[2] * cy;
+			return [x, point[1] * cp - z * sp, point[1] * sp + z * cp];
+		}
+
+		function project(point, viewport, zoom, focus) {
+			const rotated = rotate(point);
+			const focusRotated = rotate(focus);
+			const scale = Math.min(viewport.width, viewport.height) * 0.22 * zoom;
+			return {
+				x: viewport.x + viewport.width / 2 + (rotated[0] - focusRotated[0]) * scale,
+				y: viewport.y + viewport.height / 2 - (rotated[1] - focusRotated[1]) * scale,
+				depth: rotated[2]
+			};
+		}
+
+		function cubeVertices(center, size) {
+			const x = size[0] / 2;
+			const y = size[1] / 2;
+			const z = size[2] / 2;
+			return [
+				[center[0] - x, center[1] - y, center[2] - z],
+				[center[0] + x, center[1] - y, center[2] - z],
+				[center[0] + x, center[1] + y, center[2] - z],
+				[center[0] - x, center[1] + y, center[2] - z],
+				[center[0] - x, center[1] - y, center[2] + z],
+				[center[0] + x, center[1] - y, center[2] + z],
+				[center[0] + x, center[1] + y, center[2] + z],
+				[center[0] - x, center[1] + y, center[2] + z]
+			];
+		}
+
+		function shade(color, amount) {
+			const value = parseInt(color.slice(1), 16);
+			const r = Math.max(0, Math.min(255, (value >> 16) + amount));
+			const g = Math.max(0, Math.min(255, ((value >> 8) & 255) + amount));
+			const b = Math.max(0, Math.min(255, (value & 255) + amount));
+			return "rgb(" + r + "," + g + "," + b + ")";
+		}
+
+		function renderScene(viewport, zoom, focus, clip) {
+			const polygons = [];
+			let polygonOrder = 0;
+			parts.forEach(function (part) {
+				const vertices = cubeVertices(part.center, part.size).map(function (point) {
+					return project(point, viewport, zoom, focus);
+				});
+				[[0, 1, 2, 3, 0], [4, 5, 6, 7, 4], [0, 4, 5, 1, 0], [3, 7, 6, 2, 3], [1, 5, 6, 2, 1], [0, 4, 7, 3, 0]].forEach(function (face, index) {
+					if (index === 2) return;
+					const points = face.map(function (vertex) { return vertices[vertex]; });
+					polygons.push({ points: points, depth: points.reduce(function (sum, point) { return sum + point.depth; }, 0), order: polygonOrder++, color: shade(part.color, [10, -5, 18, -12, 8, -18][index]), glow: part.glow });
+				});
+			});
+			polygons.sort(function (a, b) {
+				if (a.glow !== b.glow) return a.glow ? 1 : -1;
+				const depthDifference = b.depth - a.depth;
+				return Math.abs(depthDifference) < 0.0001 ? a.order - b.order : depthDifference;
+			});
+			polygons.forEach(function (polygon) {
+				context.beginPath();
+				context.moveTo(polygon.points[0].x, polygon.points[0].y);
+				polygon.points.slice(1).forEach(function (point) { context.lineTo(point.x, point.y); });
+				context.closePath();
+				if (polygon.glow) {
+					context.shadowColor = "rgba(90, 242, 173, .9)";
+					context.shadowBlur = clip ? 18 : 12;
+				}
+				context.fillStyle = polygon.color;
+				context.fill();
+				context.shadowBlur = 0;
+				context.strokeStyle = "rgba(220, 240, 238, .28)";
+				context.lineWidth = 1;
+				context.stroke();
+			});
+		}
+
+		function drawLens(anchor) {
+			const radius = lens.size / 2;
+			const gradient = context.createLinearGradient(anchor.x, anchor.y, lens.x, lens.y);
+			gradient.addColorStop(0, "#ffffff");
+			gradient.addColorStop(1, "#e33e4f");
+			context.save();
+			context.strokeStyle = gradient;
+			context.lineWidth = 2;
+			context.beginPath();
+			context.moveTo(anchor.x, anchor.y);
+			context.lineTo(lens.x, lens.y);
+			context.stroke();
+			context.restore();
+			context.save();
+			context.beginPath();
+			context.arc(lens.x, lens.y, radius, 0, Math.PI * 2);
+			context.clip();
+			context.fillStyle = "rgba(255, 255, 255, .92)";
+			context.fillRect(lens.x - radius, lens.y - radius, lens.size, lens.size);
+			renderScene({ x: lens.x - radius, y: lens.y - radius, width: lens.size, height: lens.size }, magnification, highlight, true);
+			context.restore();
+			context.save();
+			context.beginPath();
+			context.arc(lens.x, lens.y, radius, 0, Math.PI * 2);
+			context.lineWidth = 6;
+			context.strokeStyle = "#f4f7f5";
+			context.shadowColor = "rgba(0, 0, 0, .7)";
+			context.shadowBlur = 14;
+			context.stroke();
+			context.restore();
+		}
+
+		function draw() {
+			context.clearRect(0, 0, canvas.width, canvas.height);
+			const mainViewport = { x: 0, y: 0, width: canvas.width, height: canvas.height };
+			renderScene(mainViewport, 1, [0, 0.25, 0], false);
+			const anchor = project(highlight, mainViewport, 1, [0, 0.25, 0]);
+			drawLens(anchor);
+			window.requestAnimationFrame(draw);
+		}
+
+		function pointerPosition(event) {
+			const bounds = canvas.getBoundingClientRect();
+			return {
+				x: (event.clientX - bounds.left) * canvas.width / bounds.width,
+				y: (event.clientY - bounds.top) * canvas.height / bounds.height
+			};
+		}
+
+		canvas.addEventListener("pointerdown", function (event) {
+			const point = pointerPosition(event);
+			const distance = Math.hypot(point.x - lens.x, point.y - lens.y);
+			interaction = distance <= lens.size / 2 ? { type: "lens", dx: point.x - lens.x, dy: point.y - lens.y } : { type: "rotate", x: point.x, y: point.y };
+			canvas.setPointerCapture(event.pointerId);
+		});
+		canvas.addEventListener("pointermove", function (event) {
+			if (!interaction) return;
+			const point = pointerPosition(event);
+			if (interaction.type === "lens") {
+				lens.x = point.x - interaction.dx;
+				lens.y = point.y - interaction.dy;
+			} else {
+				yaw += (point.x - interaction.x) * 0.01;
+				pitch = Math.max(-0.9, Math.min(-0.35, pitch - (point.y - interaction.y) * 0.01));
+				interaction.x = point.x;
+				interaction.y = point.y;
+			}
+		});
+		canvas.addEventListener("pointerup", function () { interaction = null; });
+		canvas.addEventListener("pointercancel", function () { interaction = null; });
+
+		draw();
+	}());
+</script>
 </body>
 </html>
